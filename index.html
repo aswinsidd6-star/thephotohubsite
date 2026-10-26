@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>ThePhotoHub® — Wedding Photography &amp; Cinematography | Chennai</title>
+<meta content="Artisanal wedding photography and cinematic films based in Chennai, Tamil Nadu. Capturing heartfelt celebrations, timeless heirloom portraiture, and soulful human stories." name="description"/>
+<meta content="#F8F5EF" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter+Tight:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+/* =====================================================================
+   1. DESIGN SYSTEM & LUXURY COLOR TOKENS
+   ===================================================================== */
+:root {
+  /* Core Luxury Palette */
+  --ivory: #F8F5EF;        /* Warm ivory: Primary editorial page background */
+  --surface: #E8E0D4;      /* Warm stone: Secondary surfaces, badge pills    */
+  --surface-light: #F2EBE0;/* Soft champagne stone                          */
+  --ink: #201E1B;          /* Deep charcoal: Primary headlines & body copy  */
+  --charcoal: #201E1B;     /* Deep charcoal: Primary buttons & accents      */
+  --muted: #756B60;        /* Soft taupe: Subtitles & supporting text       */
+  --gold: #B79A68;         /* Champagne gold: Hairlines, accents, borders   */
+  --gold-deep: #8C7043;    /* Deeper champagne: Legible handwritten script  */
+  --cream: #FFFDF9;        /* Cream white: Pure highlights & modals         */
+  --on-dark: #F8F5EF;      /* Text on dark surfaces                         */
+  --card-a: #E4DCCF;       /* Neutral warm image placeholder gradient       */
+  --card-b: #C8BDAE;
+
+  /* Cinematic Dark Theme Tokens (Sections 6 & 10) */
+  --dark-bg: #151412;
+  --dark-surface: #1E1C19;
+  --dark-border: rgba(183, 154, 104, 0.24);
+  --dark-muted: #A3998E;
+
+  /* Responsive Layout Unit (Scales 1440x1000 Hero Stage cleanly) */
+  --u: min(100vw / 1440, 100vh / 1000);
+  --ox: calc(50% - var(--u) * 720);
+  --gutter: clamp(20px, 4vw, 64px);
+  --max-w: 1280px;
+  --k: 1px;
+}
+
+@supports (height: 100svh) {
+  :root { --u: min(100vw / 1440, 100svh / 1000); }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: var(--ivory); }
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* Editorial Serif & Handwritten Utility Classes */
+.serif { font-family: "Cormorant Garamond", Georgia, serif; }
+.hand { font-family: "Caveat", "Segoe Script", cursive; font-weight: 600; color: var(--gold-deep); line-height: 1.1; }
+
+/* Container & Section Architecture */
+.section { position: relative; width: 100%; padding: clamp(70px, 9vw, 130px) var(--gutter); }
+.container { max-width: var(--max-w); margin: 0 auto; position: relative; }
+.tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 12.5px/1 "Inter Tight", sans-serif;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--gold-deep); margin-bottom: 16px;
+}
+.tag::before { content: ""; width: 24px; height: 1px; background: var(--gold); }
+
+/* =====================================================================
+   2. STICKY TOP NAVIGATION BAR
+   ===================================================================== */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 18px var(--gutter);
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+.site-header.scrolled {
+  background: rgba(248, 245, 239, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 12px var(--gutter);
+  border-bottom-color: rgba(183, 154, 104, 0.25);
+  box-shadow: 0 4px 20px rgba(32, 30, 27, 0.04);
+}
+.header-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand-lockup {
+  display: flex; align-items: center; gap: 10px;
+}
+.brand-lockup svg { width: 30px; height: 30px; }
+.brand-text { display: flex; flex-direction: column; }
+.brand-name {
+  font: 700 22px/1 "Inter Tight", sans-serif;
+  letter-spacing: -0.02em; color: var(--charcoal);
+}
+.brand-sub {
+  font: 500 9px/1 "Inter", sans-serif;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold-deep); margin-top: 3px;
+}
+.nav-links {
+  display: flex; align-items: center; gap: clamp(18px, 2.2vw, 36px);
+}
+.nav-links a {
+  position: relative; font: 500 14px/1 "Inter", sans-serif;
+  color: var(--ink); padding: 8px 0; transition: color 0.25s;
+}
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 1px;
+  background: var(--gold); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.btn-whatsapp {
+  height: 40px; padding: 0 20px; border-radius: 999px;
+  background: var(--charcoal); color: var(--on-dark);
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 13.5px/1 "Inter", sans-serif;
+  transition: transform 0.25s ease, background 0.25s ease;
+  border: 1px solid rgba(183, 154, 104, 0.3);
+}
+.btn-whatsapp svg { width: 16px; height: 16px; fill: currentColor; }
+.btn-whatsapp:hover { transform: translateY(-1px); background: #11100F; }
+
+/* Mobile Menu Button */
+.menu-toggle {
+  display: none; width: 40px; height: 40px;
+  border-radius: 50%; background: var(--surface);
+  align-items: center; justify-content: center;
+  flex-direction: column; gap: 5px;
+}
+.menu-toggle span { display: block; width: 18px; height: 1.5px; background: var(--charcoal); transition: 0.3s; }
+
+/* Mobile Navigation Overlay */
+.mobile-nav {
+  position: fixed; inset: 0; z-index: 99; background: var(--ivory);
+  padding: 100px 30px 40px; display: flex; flex-direction: column; justify-content: space-between;
+  transform: translateY(-100%); transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mobile-nav.open { transform: translateY(0); }
+.mobile-nav-links { display: flex; flex-direction: column; gap: 20px; }
+.mobile-nav-links a {
+  font: 600 28px/1.2 "Cormorant Garamond", serif;
+  color: var(--charcoal); border-bottom: 1px solid rgba(183, 154, 104, 0.15);
+  padding-bottom: 12px;
+}
+.mobile-nav-footer { font-size: 13px; color: var(--muted); }
+
+/* =====================================================================
+   3. HERO CHAPTER (Preserving Original Perspective Carousel Geometry)
+   ===================================================================== */
+.hero-stage {
+  position: relative; width: 100%; height: calc(var(--u) * 1000);
+  min-height: 700px; overflow: hidden; background: var(--ivory);
+  padding-top: calc(var(--u) * 80);
+}
+.hero-badge {
+  position: absolute; left: 0; right: 0; margin-inline: auto; width: max-content;
+  top: calc(var(--u) * 98); height: max(30px, calc(var(--u) * 34)); padding: 0 max(16px, calc(var(--u) * 22));
+  border-radius: 999px; border: 1px solid color-mix(in srgb, var(--gold) 65%, transparent);
+  background: color-mix(in srgb, var(--cream) 75%, transparent); color: var(--charcoal);
+  display: flex; align-items: center; justify-content: center;
+  font: 500 max(12px, calc(var(--u) * 14.5))/1 "Inter Tight", sans-serif;
+  letter-spacing: 0.04em; text-transform: uppercase; z-index: 3;
+}
+.hero-headline {
+  position: absolute; left: 0; right: 0; top: calc(var(--u) * 152); text-align: center;
+  font: 600 calc(var(--u) * 88)/calc(var(--u) * 92) "Inter Tight", sans-serif;
+  color: var(--ink); z-index: 3;
+}
+.hero-headline .l { display: block; white-space: nowrap; }
+.hero-headline .l1 { letter-spacing: -0.04em; }
+.hero-headline .l2 { letter-spacing: -0.036em; font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-weight: 500; font-size: 1.05em; }
+
+.hero-sub {
+  position: absolute; left: 50%; top: calc(var(--u) * 360); width: min(780px, calc(var(--u) * 760));
+  transform: translateX(-50%); text-align: center;
+  font: 400 max(15px, calc(var(--u) * 19))/1.6 "Inter", sans-serif; color: var(--muted); z-index: 3;
+}
+
+/* Handwritten annotations & SVG arrows */
+.overlay-svg {
+  position: absolute; left: var(--ox); top: 0; width: calc(var(--u) * 1440); height: calc(var(--u) * 1000);
+  pointer-events: none; overflow: visible; z-index: 2;
+}
+.draw { fill: none; stroke: var(--gold); stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+.note-tr {
+  position: absolute; left: calc(var(--ox) + var(--u) * 1230); top: calc(var(--u) * 285);
+  font-size: max(18px, calc(var(--u) * 31)); transform: rotate(-5deg); z-index: 3;
+}
+.note-bl {
+  position: absolute; left: calc(var(--ox) + var(--u) * 480); top: calc(var(--u) * 905);
+  font-size: max(16px, calc(var(--u) * 24)); transform: rotate(-4deg); z-index: 3;
+}
+
+/* Full Bleed Center-Shrink Carousel */
+.carousel {
+  position: absolute; left: 0; top: calc(var(--u) * 420); width: 100%; height: calc(var(--u) * 460);
+  overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; z-index: 2;
+}
+.carousel.dragging { cursor: grabbing; }
+.card {
+  position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform, clip-path;
+  visibility: hidden; background: var(--card-a); box-shadow: 0 16px 36px rgba(32, 30, 27, 0.08);
+}
+.card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(165deg, var(--card-a), var(--card-b)); }
+.card::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(32, 30, 27, 0) 50%, rgba(32, 30, 27, 0.42));
+}
+.card img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 0.8s ease; pointer-events: none;
+}
+.card img.ready { opacity: 1; }
+.play {
+  position: absolute; left: 0; top: 0; z-index: 2; width: calc(var(--k) * 28); height: calc(var(--k) * 28);
+  border-radius: 50%; background: rgba(32, 30, 27, 0.46); border: 1px solid rgba(255, 253, 249, 0.6);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: grid; place-items: center; will-change: transform;
+}
+.play svg { width: 50%; height: 50%; fill: #FFFDF9; }
+
+/* Hero CTA Zone */
+.hero-cta-zone {
+  position: absolute; left: 0; right: 0; top: calc(var(--u) * 875);
+  display: flex; align-items: center; justify-content: center; gap: 20px; z-index: 4;
+}
+.btn-hero-cta {
+  height: calc(var(--u) * 58); min-height: 52px; padding: 0 max(26px, calc(var(--u) * 34));
+  border-radius: 999px; background: var(--charcoal); color: var(--on-dark);
+  display: inline-flex; align-items: center; justify-content: center;
+  font: 500 max(14px, calc(var(--u) * 16.5))/1 "Inter", sans-serif;
+  position: relative; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s;
+}
+.btn-hero-cta::before {
+  content: ""; position: absolute; inset: -8px -9px; border-radius: 999px;
+  border: 1.25px dashed var(--gold); pointer-events: none;
+}
+.btn-hero-cta:hover { transform: scale(1.03); background: #11100F; }
+
+/* =====================================================================
+   4. SECTION 2: BRAND PHILOSOPHY
+   ===================================================================== */
+.philosophy { background: var(--ivory); border-top: 1px solid rgba(183, 154, 104, 0.2); }
+.philosophy-grid {
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+.philosophy-statement {
+  font: 400 clamp(32px, 4.2vw, 56px)/1.15 "Cormorant Garamond", Georgia, serif;
+  color: var(--ink); margin-bottom: 28px;
+}
+.philosophy-statement em { font-style: italic; color: var(--gold-deep); }
+.philosophy-copy {
+  font: 400 16.5px/1.75 "Inter", sans-serif; color: var(--muted); margin-bottom: 36px;
+  max-width: 580px;
+}
+.pillars-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  border-top: 1px solid rgba(183, 154, 104, 0.25); padding-top: 28px;
+}
+.pillar-num { font: 600 13px/1 "Inter Tight", sans-serif; color: var(--gold-deep); margin-bottom: 6px; }
+.pillar-title { font: 600 16px/1.3 "Inter Tight", sans-serif; color: var(--charcoal); margin-bottom: 6px; }
+.pillar-desc { font: 400 13px/1.5 "Inter", sans-serif; color: var(--muted); }
+
+.philosophy-visual { position: relative; }
+.visual-frame-main {
+  position: relative; border-radius: 4px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(32, 30, 27, 0.12);
+  aspect-ratio: 4 / 5;
+}
+.visual-frame-secondary {
+  position: absolute; width: 62%; aspect-ratio: 1; bottom: -30px; left: -36px;
+  border-radius: 4px; overflow: hidden; border: 8px solid var(--ivory);
+  box-shadow: 0 20px 40px rgba(32, 30, 27, 0.16);
+}
+.philosophy-annotation {
+  position: absolute; right: 10px; bottom: -45px; transform: rotate(-5deg);
+  font-size: 26px; z-index: 2;
+}
+
+/* =====================================================================
+   5. SECTION 3: THE WEDDING STORY (CHRONICLES OF CELEBRATION)
+   ===================================================================== */
+.wedding-story { background: var(--surface-light); border-top: 1px solid rgba(183, 154, 104, 0.2); }
+.story-header {
+  text-align: center; max-width: 780px; margin: 0 auto clamp(50px, 6vw, 80px);
+}
+.story-header h2 {
+  font: 500 clamp(36px, 4.5vw, 62px)/1.1 "Cormorant Garamond", Georgia, serif;
+  color: var(--charcoal); margin-top: 8px;
+}
+.story-header p {
+  font: 400 16px/1.6 "Inter", sans-serif; color: var(--muted); margin-top: 14px;
+}
+
+.story-triptych {
+  display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: clamp(16px, 2.5vw, 36px);
+  align-items: center;
+}
+.story-card {
+  position: relative; background: var(--cream); border-radius: 4px; overflow: hidden;
+  box-shadow: 0 18px 45px rgba(32, 30, 27, 0.08); transition: transform 0.4s ease;
+}
+.story-card:hover { transform: translateY(-6px); }
+.story-card.lead { transform: translateY(-16px); }
+.story-card.lead:hover { transform: translateY(-22px); }
+.story-img-wrap { width: 100%; aspect-ratio: 3 / 4.2; overflow: hidden; position: relative; }
+.story-card.lead .story-img-wrap { aspect-ratio: 3 / 4.6; }
+.story-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+.story-card:hover .story-img-wrap img { transform: scale(1.04); }
+.story-meta {
+  padding: 22px 24px; border-top: 1px solid rgba(183, 154, 104, 0.15);
+}
+.story-timecode { font: 500 11.5px/1 "Inter Tight", sans-serif; color: var(--gold-deep); letter-spacing: 0.12em; text-transform: uppercase; }
+.story-title { font: 600 20px/1.3 "Cormorant Garamond", serif; color: var(--charcoal); margin-top: 6px; }
+.story-location { font: 400 13px/1.4 "Inter", sans-serif; color: var(--muted); margin-top: 4px; }
+
+/* =====================================================================
+   6. SECTION 4: THE CURATED PORTFOLIO GALLERY (FILTERABLE)
+   ===================================================================== */
+.portfolio { background: var(--ivory); }
+.portfolio-nav-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px; margin-bottom: 46px; border-bottom: 1px solid rgba(183, 154, 104, 0.25);
+  padding-bottom: 24px;
+}
+.gallery-filters {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 8px 18px; border-radius: 999px; font: 500 13px/1 "Inter", sans-serif;
+  color: var(--muted); border: 1px solid transparent; transition: all 0.25s ease;
+}
+.filter-btn:hover { color: var(--charcoal); border-color: rgba(183, 154, 104, 0.3); }
+.filter-btn.active {
+  background: var(--charcoal); color: var(--on-dark); border-color: var(--charcoal);
+}
+
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(14px, 2vw, 24px);
+}
+.gallery-item {
+  position: relative; border-radius: 4px; overflow: hidden; background: var(--surface);
+  cursor: pointer; box-shadow: 0 12px 30px rgba(32, 30, 27, 0.06);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.gallery-item:hover { transform: translateY(-4px); }
+.gallery-item.col-6 { grid-column: span 6; aspect-ratio: 16 / 11; }
+.gallery-item.col-4 { grid-column: span 4; aspect-ratio: 4 / 5; }
+.gallery-item.col-8 { grid-column: span 8; aspect-ratio: 16 / 10; }
+.gallery-item.col-12 { grid-column: span 12; aspect-ratio: 21 / 9; }
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gallery-item:hover img { transform: scale(1.05); }
+
+.gallery-item-overlay {
+  position: absolute; inset: 0; background: linear-gradient(180deg, rgba(32,30,27,0) 45%, rgba(32,30,27,0.78));
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+.gallery-badge {
+  font: 500 11px/1 "Inter Tight", sans-serif; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 6px;
+}
+.gallery-item-title {
+  font: 500 22px/1.2 "Cormorant Garamond", Georgia, serif; color: var(--cream);
+}
+.gallery-item-desc {
+  font: 400 12.5px/1.4 "Inter", sans-serif; color: rgba(248, 245, 239, 0.82); margin-top: 4px;
+}
+
+/* =====================================================================
+   7. SECTION 5: ARTISANAL SERVICES
+   ===================================================================== */
+.services { background: var(--surface); border-top: 1px solid rgba(183, 154, 104, 0.2); }
+.services-header { max-width: 680px; margin-bottom: clamp(40px, 6vw, 70px); }
+.services-header h2 {
+  font: 500 clamp(34px, 4vw, 54px)/1.15 "Cormorant Garamond", Georgia, serif; color: var(--charcoal);
+  margin-top: 8px;
+}
+.services-stack { display: flex; flex-direction: column; gap: clamp(24px, 3.5vw, 44px); }
+
+.service-row {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 5vw, 70px);
+  background: var(--cream); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 16px 40px rgba(32, 30, 27, 0.05); border: 1px solid rgba(183, 154, 104, 0.2);
+  align-items: center;
+}
+.service-row.reverse { direction: rtl; }
+.service-row.reverse > * { direction: ltr; }
+
+.service-media { position: relative; width: 100%; aspect-ratio: 16 / 11; overflow: hidden; }
+.service-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+.service-row:hover .service-media img { transform: scale(1.03); }
+
+.service-body { padding: clamp(30px, 4vw, 54px); }
+.service-index { font: 600 12.5px/1 "Inter Tight", sans-serif; color: var(--gold-deep); letter-spacing: 0.16em; }
+.service-title { font: 500 clamp(24px, 2.5vw, 36px)/1.2 "Cormorant Garamond", serif; color: var(--charcoal); margin-top: 8px; margin-bottom: 14px; }
+.service-desc { font: 400 15px/1.65 "Inter", sans-serif; color: var(--muted); margin-bottom: 24px; }
+.service-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.service-features li {
+  display: flex; align-items: center; gap: 10px; font: 500 13.5px/1.4 "Inter", sans-serif; color: var(--ink);
+}
+.service-features li::before {
+  content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0;
+}
+.service-cta-link {
+  display: inline-flex; align-items: center; gap: 8px; font: 600 13px/1 "Inter Tight", sans-serif;
+  color: var(--charcoal); text-transform: uppercase; letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--gold); padding-bottom: 4px; transition: color 0.2s, border-color 0.2s;
+}
+.service-cta-link:hover { color: var(--gold-deep); border-color: var(--charcoal); }
+
+/* =====================================================================
+   8. SECTION 6: CINEMATIC SIGNATURE MOMENT (OBSIDIAN DARK THEME)
+   ===================================================================== */
+.signature-interlude {
+  background: var(--dark-bg); color: var(--on-dark);
+  padding: clamp(90px, 12vw, 160px) var(--gutter);
+  text-align: center; position: relative; overflow: hidden;
+}
+.interlude-backdrop {
+  position: absolute; inset: 0; opacity: 0.15;
+  background-image: radial-gradient(#B79A68 1px, transparent 1px);
+  background-size: 28px 28px; pointer-events: none;
+}
+.interlude-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+.film-marker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font: 500 12px/1 "Inter Tight", sans-serif; text-transform: uppercase;
+  letter-spacing: 0.24em; color: var(--gold); margin-bottom: 28px;
+}
+.film-marker::before, .film-marker::after {
+  content: ""; width: 32px; height: 1px; background: var(--gold); opacity: 0.6;
+}
+.interlude-quote {
+  font: 400 clamp(32px, 4.4vw, 58px)/1.2 "Cormorant Garamond", Georgia, serif;
+  color: #FFFDF9; margin-bottom: 32px;
+}
+.interlude-quote em { font-style: italic; color: var(--gold); }
+.interlude-author {
+  font: 400 15px/1 "Inter", sans-serif; letter-spacing: 0.1em; color: var(--dark-muted);
+  text-transform: uppercase; margin-bottom: 48px;
+}
+
+/* Film Strip Visual Component */
+.film-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  max-width: 980px; margin: 0 auto; padding: 14px;
+  background: #0E0D0B; border: 1px solid var(--dark-border); border-radius: 4px;
+}
+.film-frame {
+  position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 2px;
+  background: #1C1A17;
+}
+.film-frame img { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; transition: opacity 0.4s, transform 0.6s ease; }
+.film-frame:hover img { opacity: 1; transform: scale(1.06); }
+.film-counter {
+  position: absolute; bottom: 6px; right: 8px; font: 600 10px/1 "Inter Tight", monospace;
+  color: var(--gold); background: rgba(0,0,0,0.6); padding: 2px 5px; border-radius: 2px;
+}
+
+/* =====================================================================
+   9. SECTION 7: THE PHOTOGRAPHY PROCESS
+   ===================================================================== */
+.process { background: var(--ivory); }
+.process-header { text-align: center; max-width: 640px; margin: 0 auto clamp(50px, 7vw, 90px); }
+.process-header h2 {
+  font: 500 clamp(34px, 4vw, 54px)/1.15 "Cormorant Garamond", Georgia, serif; color: var(--charcoal);
+  margin-top: 8px;
+}
+.process-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 40px);
+  position: relative;
+}
+.process-grid::before {
+  content: ""; position: absolute; top: 38px; left: 40px; right: 40px; height: 1px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0, var(--gold) 6px, transparent 6px, transparent 12px);
+  z-index: 1;
+}
+.process-card {
+  position: relative; z-index: 2; background: var(--cream); padding: 32px 24px;
+  border-radius: 6px; border: 1px solid rgba(183, 154, 104, 0.22);
+  box-shadow: 0 10px 28px rgba(32, 30, 27, 0.04); transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.process-card:hover { transform: translateY(-6px); border-color: var(--gold); }
+.process-circle {
+  width: 50px; height: 50px; border-radius: 50%; background: var(--ivory);
+  border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;
+  font: 600 16px/1 "Inter Tight", sans-serif; color: var(--charcoal); margin-bottom: 22px;
+}
+.process-step-title {
+  font: 600 18px/1.3 "Inter Tight", sans-serif; color: var(--charcoal); margin-bottom: 12px;
+}
+.process-step-desc { font: 400 14px/1.6 "Inter", sans-serif; color: var(--muted); }
+
+/* =====================================================================
+   10. SECTION 8: CLIENT LOVE & REVIEWS (PREPARED HONEST SLOTS)
+   ===================================================================== */
+.reviews { background: var(--surface-light); border-top: 1px solid rgba(183, 154, 104, 0.2); }
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 36px);
+}
+.review-card {
+  background: var(--cream); padding: clamp(28px, 4vw, 44px) 30px; border-radius: 6px;
+  border: 1px solid rgba(183, 154, 104, 0.22); display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 12px 32px rgba(32, 30, 27, 0.04);
+}
+.review-rating { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 18px; }
+.review-quote {
+  font: 400 17px/1.6 "Cormorant Garamond", Georgia, serif; color: var(--ink);
+  font-style: italic; margin-bottom: 24px;
+}
+.review-author { display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(183, 154, 104, 0.15); padding-top: 18px; }
+.review-avatar-slot {
+  width: 44px; height: 44px; border-radius: 50%; background: var(--surface);
+  display: flex; align-items: center; justify-content: center; font: 600 14px/1 "Inter Tight", sans-serif;
+  color: var(--gold-deep); border: 1px solid var(--gold);
+}
+.author-name { font: 600 14.5px/1.2 "Inter Tight", sans-serif; color: var(--charcoal); }
+.author-location { font: 400 12px/1.4 "Inter", sans-serif; color: var(--muted); }
+
+/* =====================================================================
+   11. SECTION 9: FINAL ENQUIRY CONCIERGE (DIRECT WHATSAPP TRIGGER)
+   ===================================================================== */
+.enquiry {
+  background: var(--ivory); border-top: 1px solid rgba(183, 154, 104, 0.25);
+  position: relative; overflow: hidden;
+}
+.enquiry-card {
+  background: var(--cream); border-radius: 8px; border: 1px solid rgba(183, 154, 104, 0.3);
+  box-shadow: 0 24px 70px rgba(32, 30, 27, 0.08); padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 70px);
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(40px, 6vw, 80px); align-items: center;
+}
+.enquiry-left h2 {
+  font: 500 clamp(36px, 4.5vw, 58px)/1.1 "Cormorant Garamond", Georgia, serif; color: var(--charcoal);
+  margin-top: 8px; margin-bottom: 20px;
+}
+.enquiry-left p {
+  font: 400 16px/1.7 "Inter", sans-serif; color: var(--muted); margin-bottom: 32px;
+}
+.direct-contact-items { display: flex; flex-direction: column; gap: 16px; }
+.contact-item {
+  display: flex; align-items: center; gap: 14px; font: 500 15px/1 "Inter", sans-serif; color: var(--charcoal);
+}
+.contact-item svg { width: 20px; height: 20px; fill: var(--gold-deep); flex-shrink: 0; }
+
+/* Interactive WhatsApp Pre-fill Concierge Form */
+.enquiry-form {
+  background: var(--surface-light); padding: clamp(24px, 3.5vw, 40px);
+  border-radius: 6px; border: 1px solid rgba(183, 154, 104, 0.22);
+}
+.form-title { font: 600 16px/1.3 "Inter Tight", sans-serif; color: var(--charcoal); margin-bottom: 18px; }
+.form-group { margin-bottom: 16px; }
+.form-label { display: block; font: 500 12px/1 "Inter Tight", sans-serif; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+.form-input, .form-select {
+  width: 100%; height: 46px; background: var(--cream); border: 1px solid rgba(183, 154, 104, 0.35);
+  border-radius: 4px; padding: 0 14px; font: 400 14px/1 "Inter", sans-serif; color: var(--ink);
+  outline: none; transition: border-color 0.25s;
+}
+.form-input:focus, .form-select:focus { border-color: var(--charcoal); }
+
+.btn-send-whatsapp {
+  width: 100%; height: 50px; background: #1B834C; color: #FFFDF9; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font: 600 14.5px/1 "Inter Tight", sans-serif; letter-spacing: 0.04em; margin-top: 20px;
+  transition: background 0.25s, transform 0.25s;
+}
+.btn-send-whatsapp:hover { background: #146B3D; transform: translateY(-1px); }
+.btn-send-whatsapp svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* =====================================================================
+   12. SECTION 10: CINEMATIC FOOTER
+   ===================================================================== */
+.site-footer {
+  background: var(--dark-bg); color: var(--on-dark);
+  padding: 80px var(--gutter) 40px; border-top: 1px solid var(--dark-border);
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: clamp(30px, 4vw, 60px);
+  margin-bottom: 60px;
+}
+.footer-brand h3 { font: 700 24px/1 "Inter Tight", sans-serif; letter-spacing: -0.02em; color: #FFFDF9; }
+.footer-brand p { font: 400 14.5px/1.65 "Inter", sans-serif; color: var(--dark-muted); margin-top: 14px; max-width: 340px; }
+.footer-col-title {
+  font: 600 12px/1 "Inter Tight", sans-serif; text-transform: uppercase; letter-spacing: 0.16em;
+  color: var(--gold); margin-bottom: 20px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { font: 400 14px/1.3 "Inter", sans-serif; color: var(--dark-muted); transition: color 0.2s; }
+.footer-links a:hover { color: #FFFDF9; }
+
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+  border-top: 1px solid rgba(183, 154, 104, 0.15); padding-top: 30px;
+  font: 400 12.5px/1.4 "Inter", sans-serif; color: var(--dark-muted);
+}
+.footer-bottom a { color: var(--gold); }
+
+/* =====================================================================
+   13. LIGHTBOX PREVIEW MODAL
+   ===================================================================== */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200; background: rgba(21, 20, 18, 0.94);
+  backdrop-filter: blur(12px); display: none; place-items: center; padding: 30px;
+}
+.lightbox.active { display: grid; }
+.lightbox-inner {
+  position: relative; max-width: 1000px; width: 100%; max-height: 90vh;
+  display: flex; flex-direction: column; align-items: center;
+}
+.lightbox-img {
+  max-height: 75vh; max-width: 100%; object-fit: contain; border-radius: 4px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+.lightbox-caption {
+  color: var(--cream); font: 400 15px/1.4 "Cormorant Garamond", serif; font-size: 20px;
+  margin-top: 16px; text-align: center;
+}
+.lightbox-close {
+  position: absolute; top: -44px; right: 0; color: #FFFDF9; font-size: 32px;
+  line-height: 1; padding: 4px;
+}
+
+/* =====================================================================
+   14. RESPONSIVE BREAKPOINTS (Mobile & Tablet Refinement)
+   ===================================================================== */
+@media (max-width: 1024px) {
+  .philosophy-grid { grid-template-columns: 1fr; }
+  .philosophy-visual { max-width: 520px; margin: 40px auto 0; }
+  .story-triptych { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; gap: 30px; }
+  .story-card.lead { transform: none; }
+  .service-row { grid-template-columns: 1fr; }
+  .service-row.reverse { direction: ltr; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-grid::before { display: none; }
+  .reviews-grid { grid-template-columns: 1fr; max-width: 580px; margin: 0 auto; }
+  .enquiry-card { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 820px) {
+  .nav-links, .btn-whatsapp { display: none; }
+  .menu-toggle { display: flex; }
+  .hero-stage { height: auto; min-height: 100svh; padding-bottom: 40px; }
+  .overlay-svg, .note-tr { display: none; }
+  .hero-badge { position: static; margin: 80px auto 16px; }
+  .hero-headline { position: static; font-size: clamp(38px, 9vw, 56px); line-height: 1.05; padding: 0 10px; }
+  .hero-headline .l { white-space: normal; }
+  .hero-sub { position: static; transform: none; width: 100%; padding: 0 20px; margin-top: 16px; font-size: 15px; }
+  .carousel { position: relative; top: auto; left: auto; height: min(68vw, 360px); margin-top: 20px; }
+  .hero-cta-zone { position: relative; top: auto; left: auto; margin-top: 24px; }
+  .note-bl { display: none; }
+  .gallery-item.col-6, .gallery-item.col-4, .gallery-item.col-8 { grid-column: span 12; aspect-ratio: 4 / 3; }
+  .film-strip { grid-template-columns: repeat(2, 1fr); }
+  .process-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+<style id="pro-layer">
+:root{--ease:cubic-bezier(.16,1,.3,1)}
+html.has-js .rv{opacity:0;translate:0 48px;filter:blur(8px);transition:opacity 1s var(--ease),translate 1.1s var(--ease),filter 1s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+html.has-js .rv.in{opacity:1;translate:0 0;filter:none}
+html.has-js .imr{clip-path:inset(0 0 100% 0);scale:1.18;transition:clip-path 1.4s var(--ease),scale 1.8s var(--ease)}
+html.has-js .imr.in{clip-path:inset(0);scale:1}
+#pre{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;pointer-events:none}
+#pre i{position:absolute;left:0;right:0;height:50.5%;background:#151412;transition:transform 1.1s var(--ease) .15s}
+#pre i:first-child{top:0}#pre i:nth-child(2){bottom:0}
+#pre.go i:first-child{transform:translateY(-101%)}#pre.go i:nth-child(2){transform:translateY(101%)}
+#pre b{position:relative;color:#F8F5EF;text-align:center;font:italic 500 clamp(34px,6vw,84px)/1 "Cormorant Garamond",serif;transition:opacity .5s,translate .6s var(--ease)}
+#pre b small{display:block;margin-top:18px;font:500 12px "Inter Tight";letter-spacing:.3em;color:#B79A68}
+#pre.go b{opacity:0;translate:0 -30px}
+html.has-js:not(.ready) .hero-badge,html.has-js:not(.ready) .hero-headline .l,html.has-js:not(.ready) .hero-sub,html.has-js:not(.ready) .hero-cta-zone,html.has-js:not(.ready) .hand{opacity:0;translate:0 40px;filter:blur(10px)}
+.hero-badge,.hero-headline .l,.hero-sub,.hero-cta-zone,.hand{transition:opacity 1.1s var(--ease),translate 1.2s var(--ease),filter 1s var(--ease)}
+.hero-headline .l2{transition-delay:.18s}.hero-sub{transition-delay:.35s}.hero-cta-zone{transition-delay:.5s}.hand{transition-delay:.8s}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,#B79A68,#8C7043);transform:scaleX(0);transform-origin:0 50%;z-index:1500}
+#grain{position:fixed;inset:-50%;z-index:1400;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");animation:gr .9s steps(6) infinite}
+@keyframes gr{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+.site-header{transition:transform .6s var(--ease),background-color .4s,padding .3s,border-color .4s,backdrop-filter .4s!important}
+.site-header.hide{transform:translateY(-110%)}
+#cur,#curd{position:fixed;left:0;top:0;pointer-events:none;z-index:3000;border-radius:50%;display:none}
+#cur{width:46px;height:46px;margin:-23px 0 0 -23px;border:1px solid #fff;mix-blend-mode:difference;display:grid;place-items:center;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .3s}
+#cur span{font:600 10px "Inter Tight";letter-spacing:.14em;text-transform:uppercase;color:#151412;opacity:0;transition:opacity .25s}
+#cur.big{width:96px;height:96px;margin:-48px 0 0 -48px;background:#F8F5EF;mix-blend-mode:normal}
+#cur.big span{opacity:1}
+#cur.link{width:70px;height:70px;margin:-35px 0 0 -35px;background:#fff}
+#curd{width:6px;height:6px;margin:-3px 0 0 -3px;background:#B79A68}
+@media (hover:hover) and (pointer:fine){html.cur-on,html.cur-on *{cursor:none!important}#cur,#curd{display:grid}}
+.mq{background:#151412;color:#F8F5EF;overflow:hidden;padding:clamp(40px,6vw,90px) 0;position:relative;border-block:1px solid rgba(183,154,104,.3)}
+.mq-row{display:flex;white-space:nowrap;width:max-content;will-change:transform}
+.mq-row span{font:italic 500 clamp(60px,12vw,190px)/1.05 "Cormorant Garamond",serif;padding-right:.4em;letter-spacing:-.02em}
+.mq-row span.o{-webkit-text-stroke:1.5px #B79A68;color:transparent;font-style:normal;font-family:"Inter Tight";font-weight:700;text-transform:uppercase}
+.mq-row span.g{color:#B79A68}
+.mq-row+.mq-row{margin-top:.5vw}
+.mq::after{content:"";position:absolute;inset:0;background:radial-gradient(circle 340px at var(--mx,50%) var(--my,50%),rgba(183,154,104,.22),transparent 70%);pointer-events:none}
+.stat{font-variant-numeric:tabular-nums}
+.tilt{transform-style:preserve-3d;transition:transform .5s var(--ease),box-shadow .5s}
+.tilt.on{transition:transform .1s linear;box-shadow:0 40px 80px -30px rgba(32,30,27,.45)}
+.btn-hero-cta,.btn-whatsapp{will-change:transform}
+@media (prefers-reduced-motion:reduce){#grain{animation:none}html.has-js .rv,html.has-js .imr{opacity:1;translate:0;filter:none;clip-path:none;scale:1}}
+</style><style id="pro2">
+.xp{position:relative;height:280vh;background:#151412}
+.xp-s{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}
+.xp-i{position:absolute;inset:0;overflow:hidden;will-change:clip-path}
+.xp-i img{width:100%;height:100%;object-fit:cover;will-change:transform;filter:saturate(.9) contrast(1.05)}
+.xp-i::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,20,18,.25),rgba(21,20,18,.7))}
+.xp-t{position:relative;z-index:2;text-align:center;color:#F8F5EF;padding:0 5vw;mix-blend-mode:normal}
+.xp-t h2{font:italic 500 clamp(52px,10vw,170px)/.95 "Cormorant Garamond",serif;letter-spacing:-.03em}
+.xp-t h2 em{color:#B79A68}
+.xp-t p{margin-top:2vh;font:500 12px "Inter Tight";letter-spacing:.3em;text-transform:uppercase;color:#B79A68}
+.xp-t2{position:absolute;left:0;right:0;bottom:12vh;z-index:2;text-align:center;color:#F8F5EF;font:400 clamp(15px,1.6vw,22px)/1.6 Inter;opacity:0;padding:0 8vw}
+.hs{position:relative;background:#F8F5EF}
+.hs-s{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.hs-t{display:flex;align-items:center;gap:6vw;padding:0 8vw;will-change:transform}
+.hs-h{flex:none;width:min(46vw,640px)}
+.hs-h h2{font:500 clamp(48px,7vw,120px)/.95 "Cormorant Garamond",serif;letter-spacing:-.03em;color:#201E1B}
+.hs-h h2 em{color:#8C7043}
+.hs-h p{margin-top:24px;color:#756B60;max-width:380px}
+.hs-c{flex:none;position:relative}
+.hs-c .fr{overflow:hidden;border-radius:4px}
+.hs-c img{display:block;width:100%;height:100%;object-fit:cover;transition:scale 1.4s var(--ease)}
+.hs-c:hover img{scale:1.08}
+.hs-c small{display:block;margin-top:14px;font:500 11px "Inter Tight";letter-spacing:.22em;text-transform:uppercase;color:#756B60}
+.hs-c small b{color:#B79A68;margin-right:10px}
+.hs-c:nth-child(odd) .fr{width:24vw;height:60vh}
+.hs-c:nth-child(even) .fr{width:30vw;height:42vh}
+.hs-c:nth-child(even){align-self:flex-start;margin-top:14vh}
+.hs-pg{position:absolute;left:8vw;right:8vw;bottom:5vh;height:1px;background:rgba(183,154,104,.35)}
+.hs-pg i{position:absolute;inset:0;background:#8C7043;transform:scaleX(0);transform-origin:0 50%}
+#mb{position:fixed;right:clamp(16px,2.4vw,36px);bottom:clamp(16px,2.4vw,36px);z-index:1600;width:76px;height:76px;border-radius:50%;background:#201E1B;color:#F8F5EF;font:600 11px "Inter Tight";letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(183,154,104,.5);box-shadow:0 14px 40px -10px rgba(0,0,0,.5);transition:background .3s,color .3s}
+#mb:hover{background:#B79A68;color:#151412}
+#mn{position:fixed;inset:0;z-index:1550;background:#151412;color:#F8F5EF;clip-path:circle(0 at calc(100% - 60px) calc(100% - 60px));transition:clip-path 1s var(--ease);visibility:hidden;display:flex;align-items:center;padding:0 8vw;overflow:hidden}
+#mn.open{clip-path:circle(150% at calc(100% - 60px) calc(100% - 60px));visibility:visible}
+#mn .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .7s;filter:brightness(.38)}
+#mn .bg.on{opacity:1}
+#mn nav{position:relative;z-index:2;display:flex;flex-direction:column}
+#mn nav a{display:block;overflow:hidden;font:italic 500 clamp(44px,8.5vh,110px)/1.08 "Cormorant Garamond",serif;transition:letter-spacing .5s var(--ease),color .3s,padding .5s var(--ease)}
+#mn nav a span{display:inline-block;translate:0 110%;transition:translate .9s var(--ease);transition-delay:calc(var(--n)*70ms + .25s)}
+#mn.open nav a span{translate:0 0}
+#mn nav a:hover{color:#B79A68;padding-left:2vw}
+#mn nav a sup{font:500 11px "Inter Tight";letter-spacing:.2em;margin-right:14px;color:#B79A68;vertical-align:top;position:relative;top:1.1em}
+#mn .ft{position:absolute;left:8vw;bottom:5vh;z-index:2;font:500 12px "Inter Tight";letter-spacing:.2em;text-transform:uppercase;color:#A3998E}
+body.mo{overflow:hidden}
+</style><style id="pro3">
+#dust{position:fixed;inset:0;width:100%;height:100%;z-index:1300;pointer-events:none}
+#bc{position:fixed;left:50%;bottom:clamp(16px,2.4vw,36px);translate:-50% 0;z-index:1450;display:flex;align-items:center;gap:12px;padding:0 22px 0 8px;height:46px;border-radius:99px;background:rgba(21,20,18,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#F8F5EF;font:500 11px "Inter Tight";letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(183,154,104,.4);cursor:pointer;opacity:0;transition:opacity .6s,translate .8s var(--ease)}
+#bc.show{opacity:1}
+#bc .ring{width:32px;height:32px;border-radius:50%;background:conic-gradient(#B79A68 calc(var(--p,0)*1%),rgba(255,255,255,.12) 0);display:grid;place-items:center}
+#bc .ring::after{content:"";width:24px;height:24px;border-radius:50%;background:#151412}
+#bc .tx{position:relative;height:14px;overflow:hidden;min-width:112px}
+#bc .tx span{position:absolute;left:0;top:0;white-space:nowrap;transition:translate .7s var(--ease),opacity .5s}
+#bc .tx span.o{translate:0 -120%;opacity:0}
+#bc .tx span.n{translate:0 0}
+#bc .tx span.w{translate:0 120%;opacity:0;transition:none}
+#bc em{font-style:normal;color:#B79A68}
+#fl{position:fixed;left:clamp(16px,2.4vw,36px);bottom:clamp(16px,2.4vw,36px);z-index:1450;max-width:250px;padding:16px 18px;border-radius:18px;background:rgba(248,245,239,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(183,154,104,.5);box-shadow:0 24px 60px -20px rgba(32,30,27,.4);font:400 13px/1.45 Inter;color:#201E1B;translate:0 140%;opacity:0;transition:translate 1s var(--ease),opacity .8s;animation:bob 5s ease-in-out infinite}
+#fl.show{translate:0 0;opacity:1}
+#fl b{display:flex;align-items:center;gap:8px;font:600 11px "Inter Tight";letter-spacing:.16em;text-transform:uppercase;color:#8C7043;margin-bottom:6px}
+#fl b::before{content:"";width:8px;height:8px;border-radius:50%;background:#3fb950;box-shadow:0 0 0 0 rgba(63,185,80,.6);animation:pl 1.8s infinite}
+#fl a{display:inline-block;margin-top:8px;font-weight:600;border-bottom:1px solid #B79A68}
+#fl i{position:absolute;top:6px;right:10px;font-style:normal;cursor:pointer;color:#756B60}
+@keyframes pl{70%{box-shadow:0 0 0 9px rgba(63,185,80,0)}100%{box-shadow:0 0 0 0 rgba(63,185,80,0)}}
+@keyframes bob{50%{transform:translateY(-7px)}}
+@keyframes sway{0%,100%{rotate:-2.5deg}50%{rotate:2.5deg}}
+.hand{animation:sway 6s ease-in-out infinite}
+#seal{position:absolute;left:3vw;bottom:5vh;width:clamp(84px,9vw,128px);z-index:4;pointer-events:none}
+#seal svg{width:100%;height:100%;animation:none}
+#seal text{font:600 11.4px "Inter Tight";letter-spacing:.32em;fill:#8C7043;text-transform:uppercase}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(183,154,104,.5),transparent 70%);animation:orb 14s ease-in-out infinite alternate;pointer-events:none}
+@keyframes orb{to{transform:translate(18vw,-6vh) scale(1.4)}}
+.rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);scale:0;animation:rp .7s var(--ease) forwards;pointer-events:none}
+@keyframes rp{to{scale:1;opacity:0}}
+.btn-hero-cta,.btn-whatsapp{position:relative;overflow:hidden}
+.tilt3{transform-style:preserve-3d;transition:transform .6s var(--ease),box-shadow .6s}
+.tilt3.on{transition:transform .1s linear;box-shadow:0 36px 70px -28px rgba(32,30,27,.5)}
+.tilt3::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.28),transparent 55%);opacity:0;transition:opacity .4s;z-index:3}
+.tilt3.on::before{opacity:1}
+@media (max-width:700px){#fl{display:none}#seal{display:none}}
+@media (prefers-reduced-motion:reduce){.hand,#fl,.orb{animation:none}}
+</style>
+<style id="world-class-photography-layer">
+/* WORLD-CLASS PHOTOGRAPHY ART DIRECTION — ThePhotoHub
+   Niche: fine-art South Indian weddings, documentary candids, heirloom details. */
+:root{--photo-ease:cubic-bezier(.22,.61,.36,1);--photo-ink:#201e1b;--photo-gold:#b79a68}
+/* All photography is treated as a deliberate editorial frame, never a raw rectangle. */
+.premium-photo{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.001);transition:transform 1.15s var(--photo-ease),filter .8s var(--photo-ease);will-change:transform;backface-visibility:hidden}
+.card,.fr,.visual-frame-main,.visual-frame-secondary,.story-image,.portfolio-image,.service-image,.film-frame,.xp-i,.hs-c,.gallery-item{isolation:isolate}
+.card,.fr,.visual-frame-main,.visual-frame-secondary,.film-frame,.xp-i,.hs-c,.gallery-item{overflow:hidden}
+/* Slow editorial push-in; hover remains restrained so the photography leads. */
+.card:hover .premium-photo,.fr:hover .premium-photo,.visual-frame-main:hover .premium-photo,.visual-frame-secondary:hover .premium-photo,.film-frame:hover .premium-photo,.hs-c:hover .premium-photo,.gallery-item:hover .premium-photo{transform:scale(1.055);filter:saturate(1.04) contrast(1.025)}
+/* Fine-art tonal finish: preserve skin tones, gently deepen shadows, avoid heavy filters. */
+.card::after,.fr::after,.visual-frame-main::after,.visual-frame-secondary::after,.film-frame::after,.hs-c .fr::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(20,17,14,.035) 0%,transparent 32%,rgba(20,17,14,.10) 100%);opacity:.78;transition:opacity .6s var(--photo-ease)}
+.card:hover::after,.fr:hover::after,.visual-frame-main:hover::after,.film-frame:hover::after,.hs-c:hover .fr::after{opacity:.35}
+/* Quiet champagne frame detail on selected portfolio imagery. */
+.visual-frame-main,.visual-frame-secondary,.film-frame{outline:1px solid rgba(183,154,104,.22);outline-offset:-1px}
+/* Image reveals are enabled only when JS is available, so content never disappears on failure. */
+.photo-reveal-ready .photo-reveal{opacity:0;transform:translateY(22px) scale(.99);transition:opacity .9s var(--photo-ease),transform 1.1s var(--photo-ease)}
+.photo-reveal-ready .photo-reveal.is-visible{opacity:1;transform:translateY(0) scale(1)}
+/* Editorial image caption treatment where an image card already has labels. */
+.hs-c small,.film-counter{position:relative;z-index:2}
+/* Image hover is disabled for touch devices; retain simple, smooth presentation. */
+@media(hover:none){.premium-photo{transition:transform .7s var(--photo-ease),filter .7s var(--photo-ease)}.card:hover .premium-photo,.fr:hover .premium-photo,.visual-frame-main:hover .premium-photo,.visual-frame-secondary:hover .premium-photo,.film-frame:hover .premium-photo,.hs-c:hover .premium-photo{transform:none;filter:none}}
+@media(prefers-reduced-motion:reduce){.premium-photo,.photo-reveal-ready .photo-reveal{transition:none!important;transform:none!important;animation:none!important}.photo-reveal-ready .photo-reveal{opacity:1!important}}
+</style>
+<style id="image-coverage-patch">
+
+/* FINAL IMAGE COVERAGE PATCH: portrait imagery for review cards and resilient empty-frame fallbacks */
+.review-author .review-avatar-slot{
+  position:relative;overflow:hidden;flex:0 0 44px;
+  color:transparent;font-size:0;
+  background-size:cover;background-position:center;
+  box-shadow:0 4px 14px rgba(32,30,27,.14);
+}
+.review-author:nth-of-type(1) .review-avatar-slot,
+.review-card:nth-child(1) .review-avatar-slot{
+  background-image:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&h=160&q=80');
+}
+.review-card:nth-child(2) .review-avatar-slot{
+  background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=80');
+}
+.review-card:nth-child(3) .review-avatar-slot{
+  background-image:url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=160&h=160&q=80');
+}
+/* Empty-frame fallback is intentionally neutral; real photographs are placed in the actual image elements. */
+.visual-frame-main:empty,.visual-frame-secondary:empty,.story-img-wrap:empty,.service-media:empty,.film-frame:empty,.hs-c .fr:empty,.xp-i:empty{background:linear-gradient(135deg,#e8e0d4,#c8bdae);}
+/* Do not let image elements collapse or show a blank surface while loading. */
+.story-img-wrap img,.service-media img,.gallery-item img,.film-frame img,
+.visual-frame-main img,.visual-frame-secondary img,.hs-c img,.xp-i img{
+  background-color:#d8c9b2;
+}
+@media (max-width:820px){
+ .review-author .review-avatar-slot{width:44px;height:44px}
+}
+
+</style>
+
+<style id="world-class-image-placement-patch">
+/* WORLD-CLASS IMAGE IMPLEMENTATION
+   The image itself fills each existing frame; no blank-card overlays or repeated generic backgrounds. */
+img.premium-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.carousel .premium-photo { object-position: 50% 38%; }
+.visual-frame-main .premium-photo { object-position: 50% 36%; }
+.visual-frame-secondary .premium-photo { object-position: 50% 50%; }
+.story-card:nth-child(1) .premium-photo { object-position: 50% 35%; }
+.story-card:nth-child(2) .premium-photo { object-position: 50% 42%; }
+.story-card:nth-child(3) .premium-photo { object-position: 50% 38%; }
+.gallery-item .premium-photo { object-position: 50% 42%; }
+.service-row:nth-of-type(odd) .service-media .premium-photo { object-position: 50% 38%; }
+.service-row:nth-of-type(even) .service-media .premium-photo { object-position: 50% 45%; }
+.film-frame .premium-photo { object-position: 50% 40%; }
+
+/* Critical reliability fix: image reveal animations enhance the image but never hide it indefinitely. */
+html.has-js .imr {
+  clip-path: inset(0) !important;
+  scale: 1 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: filter 1s ease, transform 1.3s cubic-bezier(.16,1,.3,1) !important;
+}
+html.has-js .imr.in { clip-path: inset(0) !important; scale: 1 !important; }
+img.premium-photo:not([src]), img.premium-photo[src=""] { visibility: hidden; }
+
+/* Photo motion is tied to its frame, not an overlay pasted on top of it. */
+@media (prefers-reduced-motion: no-preference) {
+  .story-card .story-img-wrap img,
+  .gallery-item img,
+  .service-media img,
+  .visual-frame-main img,
+  .visual-frame-secondary img,
+  .film-frame img,
+  .hs-c img {
+    transition: transform 1.1s cubic-bezier(.22,1,.36,1), filter .7s ease;
+  }
+  .story-card:hover .story-img-wrap img,
+  .gallery-item:hover img,
+  .service-row:hover .service-media img,
+  .visual-frame-main:hover img,
+  .visual-frame-secondary:hover img,
+  .film-frame:hover img,
+  .hs-c:hover img {
+    transform: scale(1.045);
+  }
+}
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(20,17,14,0) 48%, rgba(20,17,14,.42) 100%);
+}
+.gallery-item .gallery-item-overlay { z-index: 2; }
+@media (max-width: 760px) {
+  .carousel .premium-photo { object-position: 50% 34%; }
+  .gallery-item::after { background: linear-gradient(180deg, transparent 38%, rgba(20,17,14,.48)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.has-js .imr, img.premium-photo { transition: none !important; transform: none !important; }
+}
+</style>
+<style id="pro4">
+img.premium-photo{filter:saturate(.8) contrast(1.06) sepia(.1) brightness(.97);transition:filter 1.4s}
+img.premium-photo.live{filter:saturate(1.06) contrast(1.07) sepia(.05) brightness(1)}
+html.has-js img.premium-photo.imr{transition:clip-path 1.4s var(--ease),scale 1.8s var(--ease),filter 1.4s}
+.photo-reveal{box-shadow:0 2px 4px rgba(32,30,27,.06),0 18px 40px -14px rgba(32,30,27,.28),0 54px 90px -44px rgba(32,30,27,.4);transition:box-shadow .8s}
+.photo-reveal:hover{box-shadow:0 0 0 1px rgba(183,154,104,.5),0 0 90px rgba(183,154,104,.28),0 40px 80px -30px rgba(32,30,27,.45)}
+.gr{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(21,20,18,.34)),linear-gradient(180deg,rgba(21,20,18,0) 55%,rgba(21,20,18,.26)),linear-gradient(135deg,rgba(183,154,104,.16),rgba(32,30,27,.08))}
+.gr::after{content:"";position:absolute;inset:0;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.gr::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.3) 50%,transparent 60%);translate:-130% 0;transition:translate 1.2s var(--ease)}
+.photo-reveal:hover .gr::before{translate:130% 0}
+.ss{position:relative;height:430vh;background:#151412}
+.ss-s{position:sticky;top:0;height:100vh;overflow:hidden;color:#F8F5EF}
+.ss-l{position:absolute;inset:0;opacity:0;transition:opacity 1.3s ease}.ss-l.on{opacity:1}
+.ss-i{width:100%;height:100%;object-fit:cover;will-change:transform;filter:saturate(.95) contrast(1.08)!important}
+.ss-l::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,20,18,.8),rgba(21,20,18,.1) 65%),linear-gradient(0deg,rgba(21,20,18,.7),transparent 45%)}
+.ss-top,.ss-bot{position:absolute;left:0;right:0;height:26vh;z-index:3;pointer-events:none}
+.ss-top{top:0;background:linear-gradient(#F8F5EF,rgba(248,245,239,0))}
+.ss-bot{bottom:0;background:linear-gradient(rgba(248,245,239,0),#F8F5EF);opacity:var(--bo,0)}
+.ss-c{position:absolute;left:8vw;bottom:14vh;z-index:4;max-width:min(620px,84vw)}
+.ss-n{font:600 12px "Inter Tight";letter-spacing:.3em;color:#B79A68;margin-bottom:2.4vh}
+.ss-t{position:absolute;left:0;bottom:0;width:100%;opacity:0;translate:0 40px;filter:blur(10px);transition:all 1s var(--ease);pointer-events:none}
+.ss-t.on{opacity:1;translate:0;filter:none}
+.ss-t h2{font:italic 500 clamp(48px,8vw,128px)/.94 "Cormorant Garamond",serif;letter-spacing:-.03em;color:#F8F5EF}
+.ss-t em{background:linear-gradient(90deg,#B79A68,#F3E3BE,#B79A68);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 5s linear infinite}
+.ss-t p{margin-top:2.2vh;font:400 clamp(15px,1.5vw,20px)/1.6 Inter;color:#E6DECF;max-width:440px}
+.ss-c{height:34vh}.ss-n{position:absolute;top:-4vh}
+@keyframes sh{to{background-position:-200% 0}}
+.ss-h{position:absolute;z-index:4;opacity:0;transition:opacity .8s .5s}.ss-h.on{opacity:1}
+.ss-h b{display:block;width:16px;height:16px;border-radius:50%;background:#B79A68;box-shadow:0 0 0 0 rgba(183,154,104,.7);animation:hp 2s infinite}
+.ss-h i{position:absolute;left:8px;top:8px;width:0;height:1px;background:#F8F5EF;transform-origin:0 0;rotate:-32deg;transition:width .9s var(--ease) .7s}.ss-h.on i{width:90px}
+.ss-h span{position:absolute;left:84px;top:-52px;white-space:nowrap;padding:8px 14px;border-radius:99px;background:rgba(248,245,239,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(248,245,239,.35);font:500 11px "Inter Tight";letter-spacing:.18em;text-transform:uppercase;opacity:0;translate:-10px 0;transition:all .8s var(--ease) 1.2s}.ss-h.on span{opacity:1;translate:0}
+@keyframes hp{70%{box-shadow:0 0 0 16px rgba(183,154,104,0)}100%{box-shadow:0 0 0 0 rgba(183,154,104,0)}}
+.ss-k{position:absolute;right:3vw;top:50%;translate:0 -50%;z-index:4;display:flex;flex-direction:column;gap:10px}
+.ss-k i{width:2px;height:34px;background:rgba(248,245,239,.3);transition:background .4s,height .5s var(--ease)}.ss-k i.on{background:#B79A68;height:56px}
+.pol{position:absolute;z-index:6;width:clamp(120px,12vw,190px);padding:8px 8px 32px;background:#fff;box-shadow:0 30px 60px -20px rgba(32,30,27,.45);animation:pf 7s ease-in-out infinite;pointer-events:none}
+.pol img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.95)}
+.pol span{position:absolute;bottom:7px;left:0;right:0;text-align:center;font:italic 16px "Cormorant Garamond",serif;color:#4a4238}
+.pol.a{right:3vw;top:9vh;rotate:6deg}.pol.b{left:2vw;bottom:8vh;rotate:-7deg;animation-delay:-3s}
+@keyframes pf{50%{translate:0 -16px}}
+.xp-t h2 em,.hs-h h2 em{background:linear-gradient(90deg,#B79A68,#F3E3BE,#B79A68);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+.hs-h h2 em{background-image:linear-gradient(90deg,#8C7043,#C9AA6B,#8C7043);background-size:200%}
+#xp::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30vh;background:linear-gradient(rgba(248,245,239,0),#F8F5EF);z-index:5;pointer-events:none}
+@media (max-width:900px){.pol,.ss-h{display:none}.ss-k{display:none}}
+@media (prefers-reduced-motion:reduce){.pol,.ss-t em,.ss-h b{animation:none}}
+</style><style id="pro5">
+.ss .ss-c{display:grid;height:auto;width:min(640px,86vw);bottom:11vh;left:8vw}
+.ss .ss-t{position:relative;grid-area:1/1;left:auto;bottom:auto}
+.ss .ss-n{position:static;margin-bottom:2.4vh}
+.ss .ss-t h2{font-size:clamp(46px,7.4vw,118px)}
+.ss .ss-t p{max-width:min(440px,100%)}
+.ss-tag{display:inline-block;margin-bottom:2.2vh;padding:7px 14px;border-radius:99px;background:rgba(248,245,239,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(248,245,239,.3);font:500 10.5px "Inter Tight";letter-spacing:.2em;text-transform:uppercase;color:#F3E3BE}
+.vf{position:absolute;inset:max(4vh,70px) 4vw 4vh;z-index:5;pointer-events:none}
+.vf i{position:absolute;width:22px;height:22px;border:0 solid rgba(248,245,239,.7)}
+.vf i:nth-child(1){left:0;top:0;border-width:1px 0 0 1px}.vf i:nth-child(2){right:0;top:0;border-width:1px 1px 0 0}
+.vf i:nth-child(3){left:0;bottom:0;border-width:0 0 1px 1px}.vf i:nth-child(4){right:0;bottom:0;border-width:0 1px 1px 0}
+.vf em{position:absolute;right:14px;top:14px;font:500 11px "Inter Tight";letter-spacing:.2em;color:#F8F5EF;font-style:normal;font-variant-numeric:tabular-nums}
+.vf em::before{content:"";display:inline-block;width:8px;height:8px;margin-right:10px;border-radius:50%;background:#e5484d;animation:bl 1.2s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+@media (max-width:700px){.ss .ss-c{left:6vw;bottom:9vh}.ss .ss-t h2{font-size:clamp(40px,12.5vw,64px)}.ss-l::after{background:linear-gradient(0deg,rgba(21,20,18,.94),rgba(21,20,18,.25) 70%)!important}.vf{inset:max(3vh,64px) 3vw 3vh}.vf em{font-size:9px}}
+.yr{position:relative;min-height:100vh;display:grid;place-items:center;overflow:hidden;background:#151412;color:#F8F5EF;text-align:center;padding:14vh 6vw}
+.yr-bg{position:absolute;inset:0;background:linear-gradient(rgba(21,20,18,.78),rgba(21,20,18,.9)),url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=70") center/cover;animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{to{scale:1.12}}
+.yr::before,.yr::after{content:"";position:absolute;left:0;right:0;height:20vh;z-index:2;pointer-events:none}
+.yr::before{top:0;background:linear-gradient(#F8F5EF,rgba(248,245,239,0))}.yr::after{bottom:0;background:linear-gradient(rgba(248,245,239,0),#F8F5EF)}
+.yr-in{position:relative;z-index:3;width:min(900px,100%)}
+.yr-k{font:600 12px "Inter Tight";letter-spacing:.3em;text-transform:uppercase;color:#B79A68;margin-bottom:3vh}
+.yr h2{font:italic 500 clamp(38px,6.4vw,100px)/1 "Cormorant Garamond",serif;letter-spacing:-.02em}
+.yr h2 em{color:#B79A68}
+.yr-f{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:5vh 0}
+.yr-f input{width:min(420px,100%);padding:18px 24px;border-radius:99px;border:1px solid rgba(183,154,104,.6);background:rgba(248,245,239,.08);backdrop-filter:blur(10px);color:#F8F5EF;font:400 16px Inter;outline:0;transition:border-color .3s,box-shadow .3s}
+.yr-f input:focus{border-color:#F3E3BE;box-shadow:0 0 0 4px rgba(183,154,104,.2)}
+.yr-f input::placeholder{color:#A3998E}
+.yr-f button,.yr-go{padding:18px 30px;border-radius:99px;background:#B79A68;color:#151412;font:600 12px "Inter Tight";letter-spacing:.18em;text-transform:uppercase;border:0;transition:background .3s,scale .3s}
+.yr-f button:hover,.yr-go:hover{background:#F3E3BE;scale:1.04}
+.yr-card{opacity:.0;translate:0 30px;transition:all 1s var(--ease);padding:6vh 4vw;border-block:1px solid rgba(183,154,104,.5)}
+.yr-card.on{opacity:1;translate:0}
+.yr-card small{display:block;font:500 11px "Inter Tight";letter-spacing:.4em;text-transform:uppercase;color:#B79A68}
+.yr-card h3{font:italic 500 clamp(44px,9vw,140px)/1.05 "Cormorant Garamond",serif;margin:2vh 0;background:linear-gradient(90deg,#B79A68,#F3E3BE,#B79A68);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+.yr-card h3 span{display:inline-block;animation:lt .9s var(--ease) both;animation-delay:calc(var(--i)*38ms)}
+@keyframes lt{from{opacity:0;translate:0 .5em;filter:blur(8px)}}
+.yr-card p{font:400 14px Inter;letter-spacing:.24em;text-transform:uppercase;color:#E6DECF;margin-bottom:4vh}
+.yr-go{display:inline-block}
+</style><style id="pro6">
+#services.suite-on{position:relative;background:#151412;color:#F8F5EF;overflow:hidden}
+#services.suite-on::before{content:"";position:absolute;left:0;right:0;top:0;height:16vh;background:linear-gradient(#F8F5EF,rgba(248,245,239,0));z-index:6;pointer-events:none}
+#services.suite-on .services-stack{display:none}
+#services.suite-on .services-header h2{color:#F8F5EF}
+#services.suite-on .services-header p,#services.suite-on .services-header p[style]{color:#A3998E!important}
+#services.suite-on .tag{color:#B79A68}
+.su{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:5vw;align-items:stretch;margin-top:8vh}
+.su-l{display:flex;flex-direction:column;justify-content:center}
+.su-i{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:grid;grid-template-columns:3.2em 1fr;align-items:baseline;padding:2.6vh 0;color:#7d746a;transition:color .5s,padding .6s var(--ease);border-top:1px solid rgba(248,245,239,.14)}
+.su-i:last-child{border-bottom:1px solid rgba(248,245,239,.14)}
+.su-i:focus-visible{outline:2px solid #B79A68;outline-offset:4px}
+.su-i small{font:500 11px "Inter Tight";letter-spacing:.24em;color:inherit}
+.su-i span{font:italic 500 clamp(26px,3.2vw,50px)/1.08 "Cormorant Garamond",serif;letter-spacing:-.01em}
+.su-i:hover{color:#E6DECF}
+.su-i.on{color:#F8F5EF;padding-left:1.4vw}
+.su-i.on small{color:#B79A68}
+.su-i i{position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:linear-gradient(90deg,#B79A68,#F3E3BE);transform:scaleX(0);transform-origin:0 50%}
+.su-st{position:relative;min-height:min(74vh,660px);border-radius:4px;overflow:hidden;isolation:isolate;box-shadow:0 60px 120px -50px rgba(0,0,0,.8),0 0 0 1px rgba(183,154,104,.25)}
+.su-im{position:absolute;inset:0;clip-path:inset(0 0 0 100%);transition:clip-path 1.2s var(--ease);z-index:1}
+.su-im img{width:100%;height:100%;object-fit:cover;scale:1.2;transition:scale 2.4s var(--ease);filter:saturate(.92) contrast(1.06) sepia(.06)}
+.su-im.on{clip-path:inset(0);z-index:2}.su-im.on img{scale:1}
+.su-st .gr{z-index:3}
+.su-pn{position:absolute;left:3%;right:3%;bottom:3%;z-index:5;padding:clamp(18px,2.4vw,34px);border-radius:3px;background:rgba(21,20,18,.46);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);border:1px solid rgba(248,245,239,.18);display:grid;pointer-events:none}
+.su-p{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .5s,visibility 0s .5s}
+.su-p.on{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .7s .35s}
+.su-p p{font:400 clamp(13px,1.1vw,15px)/1.65 Inter;color:#E6DECF;max-width:60ch;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.su-p ul{list-style:none;margin:2vh 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 2.4vw}
+.su-p li{padding:9px 0;border-top:1px solid rgba(248,245,239,.16);font:500 12px/1.4 Inter;color:#F8F5EF;translate:0 14px;opacity:0;transition:all .8s var(--ease);transition-delay:calc(var(--k)*90ms + .5s)}
+.su-p.on li{translate:0;opacity:1}
+.su-p li::before{content:"✦";color:#B79A68;margin-right:10px;font-size:9px}
+.su-go{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:99px;background:#B79A68;color:#151412!important;font:600 11px "Inter Tight";letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .3s,gap .4s var(--ease)}
+.su-go:hover{background:#F3E3BE;gap:20px}
+@media (max-width:900px){.su{grid-template-columns:1fr;gap:4vh}.su-l{flex-direction:row;overflow-x:auto;scrollbar-width:none;gap:10px}.su-l::-webkit-scrollbar{display:none}.su-i{flex:none;grid-template-columns:auto;padding:12px 18px;border:1px solid rgba(248,245,239,.2)!important;border-radius:99px}.su-i small{display:none}.su-i span{font-size:19px;white-space:nowrap}.su-i.on{padding-left:18px;background:#B79A68;color:#151412}.su-i i{display:none}.su-st{min-height:78vh}.su-p ul{grid-template-columns:1fr}.su-p p{-webkit-line-clamp:3}}
+@media (prefers-reduced-motion:reduce){.su-im,.su-im img,.su-p li{transition:none}}
+</style><style id="pro7">
+.yr-card{background:linear-gradient(rgba(21,20,18,.5),rgba(21,20,18,.5));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:4px}
+.yr-card h3{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;-webkit-text-fill-color:currentColor!important;color:#E9D5A6!important;animation:none!important;text-shadow:0 0 50px rgba(183,154,104,.5);word-break:keep-all;overflow-wrap:normal}
+.yr-card h3 .w{display:inline-block;white-space:nowrap;animation:none!important;margin:0 .12em}
+.yr-card h3 .l{display:inline-block;position:static!important;left:auto!important;top:auto!important;width:auto!important;float:none!important;animation:lt .9s var(--ease) both!important;animation-delay:calc(var(--i)*38ms)!important}
+</style><style id="premium-header">
+.site-header,.site-header.scrolled,.site-header.hide{display:flex;justify-content:space-between;align-items:center;gap:24px;z-index:1500;padding:22px clamp(18px,3vw,44px);background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;color:#fff;mix-blend-mode:difference}
+.site-header .lg{font:italic 500 28px/1 "Cormorant Garamond",serif;letter-spacing:-.01em}
+.site-header .nav-links{display:flex;gap:clamp(22px,2.6vw,40px);font:500 11px "Inter Tight",sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.site-header .nav-links a{position:relative;padding:4px 0;color:#fff;font:inherit}
+.site-header .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:#fff;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.site-header .nav-links a:hover::after,.site-header .nav-links a.on::after{transform:scaleX(1);transform-origin:left}
+.site-header .hd-cta{padding:11px 22px;border:1px solid #fff;border-radius:99px;font:600 11px "Inter Tight",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;transition:background .4s,color .4s}
+.site-header .hd-cta:hover{background:#fff;color:#000}
+@media(max-width:820px){.site-header .nav-links{display:none}.site-header .lg{font-size:24px}.site-header .hd-cta{padding:9px 16px}}
+#cv{position:fixed;inset:0;z-index:5000;background:#151412;color:#F8F5EF;display:grid;place-items:center;font:italic 500 clamp(40px,8vw,110px) "Cormorant Garamond",serif;transform:translateY(100%);transition:none;pointer-events:none}
+#cv.in{transform:none;transition:transform .85s cubic-bezier(.76,0,.24,1)}
+@media(max-width:820px){.hero-badge{white-space:normal;text-align:center;max-width:88vw;font-size:10px;line-height:1.5;letter-spacing:.14em}}
+</style>
+</head>
+<body>
+<!-- ===================================================================
+       STICKY TOP NAVIGATION BAR
+       =================================================================== -->
+<header class="site-header" id="siteHeader">
+<a aria-label="ThePhotoHub Home" class="lg" href="index.html">ThePhotoHub&reg;</a>
+<nav aria-label="Main Navigation" class="nav-links">
+<a class="on" href="index.html">Home</a>
+<a href="films.html">Films</a>
+<a href="studio.html">Studio</a>
+<a href="reserve.html">Reserve</a>
+</nav>
+<a class="hd-cta" href="reserve.html">Reserve a date</a>
+</header>
+<!-- ===================================================================
+       SECTION 1: HERO CHAPTER (THE SIGNATURE DRAMATIC CAROUSEL)
+       =================================================================== -->
+<section class="hero-stage" id="top">
+<div class="hero-badge">Artisanal Wedding Cinematography &amp; Photography • Chennai</div>
+<h1 class="hero-headline">
+<span class="l l1">Capture Moments</span>
+<span class="l l2">Create Timeless Stories</span>
+</h1>
+<p class="hero-sub">
+      Documenting intimate celebrations and grand South Indian weddings with fine-art poetry, natural light, and heartfelt cinematic depth.
+    </p>
+<!-- Desktop doodle + champagne gold SVG annotations -->
+<svg aria-hidden="true" class="overlay-svg" preserveaspectratio="none" viewbox="0 0 1440 1000">
+<path class="draw doodle" d="M263 373 L277 347" pathlength="1"></path>
+<path class="draw doodle" d="M281 373 L295 347" pathlength="1"></path>
+<path class="draw arrow-tr" d="M1288 372 C1350 404 1350 456 1282 480" pathlength="1"></path>
+<path class="draw arrow-tr-head" d="M1297.8 482.3 L1282 480 L1292.7 468.1" pathlength="1"></path>
+<path class="draw arrow-bl" d="M544 981 C580 996 632 985 646 959" pathlength="1"></path>
+<path class="draw arrow-bl-head" d="M636.1 965.7 L646 959 L646 971" pathlength="1"></path>
+</svg>
+<div class="hand note-tr">Every frame<br/>tells a story</div>
+<!-- SIGNATURE U-SHAPED CAROUSEL -->
+<div aria-label="Featured Photography — drag horizontally to explore" class="carousel" id="carousel">
+<div class="card"><img alt="South Indian bride portrait" class="premium-photo" data-photo-key="bride" decoding="async" draggable="false" loading="lazy" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/><span class="play"></span></div>
+<div class="card"><img alt="Wedding rituals and sacred fire" class="premium-photo" data-photo-key="ceremony" decoding="async" draggable="false" loading="lazy" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/><span class="play"></span></div>
+<div class="card"><img alt="Candid couple portrait in heritage courtyard" class="premium-photo" data-photo-key="couple" decoding="async" draggable="false" loading="lazy" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/><span class="play"></span></div>
+<div class="card"><img alt="Silk saree and gold temple jewellery details" class="premium-photo" data-photo-key="details" decoding="async" draggable="false" loading="lazy" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/><span class="play"></span></div>
+<div class="card"><img alt="Sunset beach couple session" class="premium-photo" data-photo-key="coast" decoding="async" draggable="false" loading="lazy" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/><span class="play"></span></div>
+<div class="card"><img alt="Joyous family celebration at mandap" class="premium-photo" data-photo-key="family" decoding="async" draggable="false" loading="lazy" src="https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/><span class="play"></span></div>
+<div class="card"><img alt="Intimate couple glance during pheras" class="premium-photo" data-photo-key="intimate" decoding="async" draggable="false" loading="lazy" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/><span class="play"></span></div>
+<div class="card"><img alt="Grand wedding reception portrait" class="premium-photo" data-photo-key="reception" decoding="async" draggable="false" loading="lazy" src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/><span class="play"></span></div>
+</div>
+<div class="hand note-bl">Pure<br/>perspective</div>
+<div class="hero-cta-zone">
+<a class="btn-hero-cta" href="#portfolio">Explore Portfolio</a>
+<a class="btn-whatsapp" href="javascript:void(0)" onclick="openWhatsAppEnquiry('Hero CTA Zone')" style="display:inline-flex;">
+<svg viewbox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.06c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.13.82.84-3.05-.2-.31c-.83-1.33-1.27-2.87-1.27-4.46 0-4.47 3.64-8.11 8.11-8.11 2.17 0 4.2 0.85 5.73 2.38 1.54 1.54 2.38 3.57 2.38 5.73 0 4.47-3.64 8.11-8.11 8.11zm4.44-6.07c-.24-.12-1.44-.71-1.66-.79-.23-.08-.39-.12-.56.12-.17.24-.64.79-.79.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.29.37-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.42 1.02 2.59.12.16 1.76 2.69 4.27 3.77.6.26 1.06.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.21-.16-.45-.28z"></path></svg>
+<span>Book Consultation</span>
+</a>
+</div>
+</section>
+<section aria-hidden="true" class="mq" id="mq"><div class="mq-row" data-d="-1"><span>Stories</span><span class="o">not shoots</span><span class="g">✦</span><span>Stories</span><span class="o">not shoots</span><span class="g">✦</span><span>Stories</span><span class="o">not shoots</span><span class="g">✦</span></div><div class="mq-row" data-d="1"><span class="o">Chennai</span><span>forever, framed</span><span class="g">✦</span><span class="o">Chennai</span><span>forever, framed</span><span class="g">✦</span><span class="o">Chennai</span><span>forever, framed</span><span class="g">✦</span></div></section>
+<section class="xp" id="xp"><div class="xp-s"><div class="xp-i" id="xpi"><img alt="Couple sharing a quiet moment during their wedding experience" class="premium-photo" data-photo-key="vows" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&amp;fit=crop&amp;w=1400&amp;q=86"/></div><div class="xp-t" id="xpt"><h2>Every frame,<br/><em>a heirloom.</em></h2><p>Chennai • Est. in light</p></div><div class="xp-t2" id="xpt2">Not a gallery. A legacy your family will hold in their hands for generations.</div></div></section>
+<section class="hs" id="hs"><div class="hs-s"><div class="hs-t" id="hst"><div class="hs-h"><h2>Chapters of <em>a love story</em></h2><p>Scroll sideways through moments we were lucky enough to witness.</p></div>
+<div class="hs-c"><div class="fr"><img alt="Wedding story chapter: celebration" class="premium-photo" data-photo-key="celebration" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/></div><small><b>01</b>The bride</small></div><div class="hs-c"><div class="fr"><img alt="Wedding story chapter: mandap" class="premium-photo" data-photo-key="mandap" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/></div><small><b>02</b>Pheras</small></div><div class="hs-c"><div class="fr"><img alt="Wedding story chapter: golden" class="premium-photo" data-photo-key="golden" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/></div><small><b>03</b>Golden hour</small></div><div class="hs-c"><div class="fr"><img alt="Wedding story chapter: rings" class="premium-photo" data-photo-key="rings" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/></div><small><b>04</b>Heirloom details</small></div><div class="hs-c"><div class="fr"><img alt="Wedding story chapter: family" class="premium-photo" data-photo-key="family" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/></div><small><b>05</b>Family</small></div><div class="hs-c"><div class="fr"><img alt="Wedding story chapter: venue" class="premium-photo" data-photo-key="venue" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/></div><small><b>06</b>The reception</small></div>
+<div class="hs-h" style="width:30vw"></div></div><div class="hs-pg"><i id="hsp"></i></div></div></section>
+<!-- ===================================================================
+       SECTION 2: BRAND PHILOSOPHY (THE ART OF PRESENCE)
+       =================================================================== -->
+<section class="ss" id="ss"><div class="ss-s"><div class="ss-l on"><img class="ss-i" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1800&q=82" alt="" loading="lazy"></div><div class="ss-l"><img class="ss-i" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=82" alt="" loading="lazy"></div><div class="ss-l"><img class="ss-i" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1800&q=82" alt="" loading="lazy"></div><div class="ss-top"></div><div class="ss-bot"></div><div class="ss-h on" style="left:62%;top:38%"><b></b><i></i><span>35mm natural light</span></div><div class="ss-h" style="left:30%;top:55%"><b></b><i></i><span>4K slow-motion</span></div><div class="ss-h" style="left:68%;top:60%"><b></b><i></i><span>Linen-bound album</span></div><div class="ss-c"><div class="ss-n"><span id="ssn">01</span> / 03</div><div class="ss-t on"><h2>Candid,<br><em>never staged.</em></h2><p>We disappear into the room and let real emotion happen.</p></div><div class="ss-t"><h2>Cinematic,<br><em>frame by frame.</em></h2><p>Film-grade light, slow motion and colour grading in every story.</p></div><div class="ss-t"><h2>Heirlooms,<br><em>not files.</em></h2><p>Hand-finished albums and prints made to be passed down.</p></div></div><div class="ss-k"><i class="on"></i><i></i><i></i></div></div></section>
+<section class="section philosophy" id="philosophy">
+<div class="container">
+<div class="philosophy-grid">
+<div class="philosophy-text">
+<span class="tag">The Brand Philosophy</span>
+<h2 class="philosophy-statement">
+            We do not manufacture moments. <em>We witness them.</em>
+</h2>
+<p class="philosophy-copy">
+            A wedding is not a photo shoot; it is a sacred confluence of families, unspoken glances, tearful blessings, and unrestrained joy. At ThePhotoHub®, our approach is rooted in quiet observation. We believe the most breathtaking imagery occurs when you forget our cameras are even in the room.
+          </p>
+<div class="pillars-row">
+<div>
+<div class="pillar-num">01</div>
+<div class="pillar-title">Unobtrusive Eye</div>
+<p class="pillar-desc">True documentary candids without staged awkwardness.</p>
+</div>
+<div>
+<div class="pillar-num">02</div>
+<div class="pillar-title">Warm Tonality</div>
+<p class="pillar-desc">True-to-life skin tones and rich cinematic color science.</p>
+</div>
+<div>
+<div class="pillar-num">03</div>
+<div class="pillar-title">Heirloom Grade</div>
+<p class="pillar-desc">Archival preservation meant to outlive generations.</p>
+</div>
+</div>
+</div>
+<div class="philosophy-visual">
+<div class="visual-frame-main">
+<img alt="Newlyweds sharing a quiet, cinematic moment" class="premium-photo" data-photo-key="vows" decoding="async" loading="eager" src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&amp;fit=crop&amp;w=1800&amp;q=86"/>
+</div>
+<div class="visual-frame-secondary">
+<img alt="Close-up of traditional wedding jewellery and henna" class="premium-photo" data-photo-key="details" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/>
+</div>
+<div class="hand philosophy-annotation">No forced poses.<br/>Just raw feeling.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================
+       SECTION 3: WEDDING STORIES (CHRONICLES OF CELEBRATION)
+       =================================================================== -->
+<section class="section wedding-story" id="weddings">
+<div class="container">
+<div class="story-header">
+<span class="tag">Chronicles of Celebration</span>
+<h2>Every Wedding is a Feature Film</h2>
+<p>From early dawn Muhurthams at heritage temples to electric starlit Sangeets along the East Coast Road, we frame every chapter with visual poetry.</p>
+</div>
+<div class="story-triptych">
+<!-- Story Card 1 -->
+<article class="story-card">
+<div class="story-img-wrap">
+<img alt="Early-morning wedding ceremony with traditional details" class="premium-photo" data-photo-key="mandap" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/>
+</div>
+<div class="story-meta">
+<span class="story-timecode">Chapter I • 06:15 AM</span>
+<h3 class="story-title">The Sacred Muhurtham</h3>
+<p class="story-location">Mylapore Heritage Mandapam, Chennai</p>
+</div>
+</article>
+<!-- Story Card 2 (Lead visual) -->
+<article class="story-card lead">
+<div class="story-img-wrap">
+<img alt="Newlyweds photographed in warm golden-hour light" class="premium-photo" data-photo-key="golden" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/>
+</div>
+<div class="story-meta">
+<span class="story-timecode">Chapter II • Golden Hour</span>
+<h3 class="story-title">Vows Against the Ocean</h3>
+<p class="story-location">Mahabalipuram Shorelines, Tamil Nadu</p>
+</div>
+</article>
+<!-- Story Card 3 -->
+<article class="story-card">
+<div class="story-img-wrap">
+<img alt="Joyful wedding celebration filled with movement and light" class="premium-photo" data-photo-key="celebration" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/>
+</div>
+<div class="story-meta">
+<span class="story-timecode">Chapter III • Midnight</span>
+<h3 class="story-title">The Rhythmic Sangeet</h3>
+<p class="story-location">Leela Palace Courtyard, Chennai</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- ===================================================================
+       SECTION 4: CURATED PORTFOLIO GALLERY (FILTERABLE)
+       =================================================================== -->
+<section class="section portfolio" id="portfolio">
+<div class="container">
+<div class="portfolio-nav-row">
+<div>
+<span class="tag">Selected Works</span>
+<h2 style="font: 500 clamp(32px, 4vw, 52px)/1.15 'Cormorant Garamond', Georgia, serif; color: var(--charcoal);">
+            A Gallery of Unscripted Soul
+          </h2>
+</div>
+<!-- Filter Buttons (Real JS filtering) -->
+<div class="gallery-filters" role="tablist">
+<button class="filter-btn active" data-filter="all">All Stories</button>
+<button class="filter-btn" data-filter="weddings">Weddings</button>
+<button class="filter-btn" data-filter="prewedding">Pre-Wedding</button>
+<button class="filter-btn" data-filter="films">Films &amp; Stills</button>
+<button class="filter-btn" data-filter="details">Rituals &amp; Heritage</button>
+</div>
+</div>
+<div class="gallery-grid" id="galleryGrid">
+<!-- Item 1 -->
+<div class="gallery-item col-8" data-category="weddings" onclick="openLightbox(this)">
+<img alt="Editorial portrait of a bride in traditional wedding attire" class="premium-photo" data-photo-key="portrait" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&amp;fit=crop&amp;w=1600&amp;q=86"/>
+<div class="gallery-item-overlay">
+<span class="gallery-badge">Traditional Wedding</span>
+<h4 class="gallery-item-title">Elegance in Gold &amp; Crimson</h4>
+<p class="gallery-item-desc">Mylapore, Chennai</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="gallery-item col-4" data-category="details" onclick="openLightbox(this)">
+<img alt="Fine details from a wedding preparation" class="premium-photo" data-photo-key="rings" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/>
+<div class="gallery-item-overlay">
+<span class="gallery-badge">Ritual Details</span>
+<h4 class="gallery-item-title">Fragrance of Marigold</h4>
+<p class="gallery-item-desc">Bridal preparations</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="gallery-item col-4" data-category="prewedding" onclick="openLightbox(this)">
+<img alt="Couple portrait in a natural outdoor setting" class="premium-photo" data-photo-key="couple2" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/>
+<div class="gallery-item-overlay">
+<span class="gallery-badge">Pre-Wedding</span>
+<h4 class="gallery-item-title">Tides of Kovalam</h4>
+<p class="gallery-item-desc">East Coast Road, Chennai</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="gallery-item col-4" data-category="films" onclick="openLightbox(this)">
+<img alt="Quiet, intimate wedding portrait" class="premium-photo" data-photo-key="intimate" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/>
+<div class="gallery-item-overlay">
+<span class="gallery-badge">Cinematic Frame</span>
+<h4 class="gallery-item-title">Quiet Anticipation</h4>
+<p class="gallery-item-desc">Direct 4K Film Still</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="gallery-item col-4" data-category="weddings" onclick="openLightbox(this)">
+<img alt="Wedding floral and ceremony details" class="premium-photo" data-photo-key="florals" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/>
+<div class="gallery-item-overlay">
+<span class="gallery-badge">Sacred Ritual</span>
+<h4 class="gallery-item-title">The Seven Steps</h4>
+<p class="gallery-item-desc">Vedic Wedding Ceremony</p>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="gallery-item col-12" data-category="prewedding" onclick="openLightbox(this)">
+<img alt="Wide view of an elegant wedding venue" class="premium-photo" data-photo-key="venue" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&amp;fit=crop&amp;w=1600&amp;q=86"/>
+<div class="gallery-item-overlay">
+<span class="gallery-badge">Destination Portraiture</span>
+<h4 class="gallery-item-title">Where The Horizons Rest</h4>
+<p class="gallery-item-desc">Hillside session in Nilgiris</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================
+       SECTION 5: OUR SERVICES & FILMING CRAFT
+       =================================================================== -->
+<section class="section services" id="services">
+<div class="container">
+<div class="services-header">
+<span class="tag">Bespoke Commissions</span>
+<h2>Crafted With Devotion, Preserved Forever</h2>
+<p style="color:var(--muted); font-size:16px; margin-top:12px;">We restrict our commissions each wedding season to guarantee uncompromising attention to your family's personal story.</p>
+</div>
+<div class="services-stack">
+<!-- Service 1: Cinematography -->
+<div class="service-row">
+<div class="service-media">
+<img alt="Wedding cinematographer documenting an unscripted moment" class="premium-photo" data-photo-key="candid" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&amp;fit=crop&amp;w=1400&amp;q=86"/>
+</div>
+<div class="service-body">
+<span class="service-index">SERVICE 01</span>
+<h3 class="service-title">Artisanal Wedding Cinematography</h3>
+<p class="service-desc">
+              We shoot wedding films like timeless indie cinema. Using prime cinema glass, dedicated live sound engineering, and soulful musical curation, our films transport you right back to the laughter, vows, and heartbeats.
+            </p>
+<ul class="service-features">
+<li>Feature-length cinematic wedding film (40–60 min)</li>
+<li>Poetic cinematic teaser &amp; Instagram preview reel</li>
+<li>4K multi-angle coverage with licensed soundtracks</li>
+<li>Full archival speech &amp; ceremony audio recordings</li>
+</ul>
+<a class="service-cta-link" href="javascript:void(0)" onclick="openWhatsAppEnquiry('Service: Cinematography')">
+              Check Cinematography Dates →
+            </a>
+</div>
+</div>
+<!-- Service 2: Signature Photography -->
+<div class="service-row reverse">
+<div class="service-media">
+<img alt="Bride getting ready with carefully styled traditional details" class="premium-photo" data-photo-key="bride" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&amp;fit=crop&amp;w=1400&amp;q=86"/>
+</div>
+<div class="service-body">
+<span class="service-index">SERVICE 02</span>
+<h3 class="service-title">Editorial Wedding Photography</h3>
+<p class="service-desc">
+              A balanced harmony of honest documentary candids and effortless, magazine-worthy portraits. We celebrate your wedding's true colors without artificial high-contrast presets.
+            </p>
+<ul class="service-features">
+<li>Senior lead photographers throughout all rituals</li>
+<li>Comprehensive color-corrected high-resolution gallery</li>
+<li>Private cloud gallery for worldwide family sharing</li>
+<li>Fine-art portraits with family &amp; grandparents</li>
+</ul>
+<a class="service-cta-link" href="javascript:void(0)" onclick="openWhatsAppEnquiry('Service: Photography')">
+              Check Photography Dates →
+            </a>
+</div>
+</div>
+<!-- Service 3: Pre-Wedding & Heirlooms -->
+<div class="service-row">
+<div class="service-media">
+<img alt="Couple enjoying a relaxed pre-wedding portrait session" class="premium-photo" data-photo-key="coast" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&amp;fit=crop&amp;w=1400&amp;q=86"/>
+</div>
+<div class="service-body">
+<span class="service-index">SERVICE 03</span>
+<h3 class="service-title">Pre-Wedding &amp; Fine-Art Heirlooms</h3>
+<p class="service-desc">
+              Celebrate your bond before the ceremonial bustle begins. Handcrafted flush-mount albums bound in Japanese silk and archival leather to preserve your memories in physical form.
+            </p>
+<ul class="service-features">
+<li>Curated concept shoots across Chennai &amp; Tamil Nadu</li>
+<li>Custom styling direction &amp; relaxed itinerary</li>
+<li>Handmade heirloom albums printed on archival paper</li>
+<li>Museum-grade gallery canvas prints</li>
+</ul>
+<a class="service-cta-link" href="javascript:void(0)" onclick="openWhatsAppEnquiry('Service: Pre-Wedding &amp; Albums')">
+              Inquire About Albums &amp; Shoots →
+            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================
+       SECTION 6: CINEMATIC SIGNATURE MOMENT (OBSIDIAN DARK THEME)
+       =================================================================== -->
+<section class="signature-interlude">
+<div class="interlude-backdrop"></div>
+<div class="interlude-content">
+<div class="film-marker">24 Frames Per Second</div>
+<blockquote class="interlude-quote">
+        “In thirty years, when memory softens, these frames will return you to the <em>exact warmth</em> of this day.”
+      </blockquote>
+<div class="interlude-author">ThePhotoHub® • Visual Ethos</div>
+<!-- 24fps Film Strip Detail -->
+<div class="film-strip">
+<div class="film-frame">
+<img alt="Cinematic wedding film still: couple2" class="premium-photo" data-photo-key="couple2" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&amp;fit=crop&amp;w=700&amp;q=86"/>
+<span class="film-counter">00:01:14</span>
+</div>
+<div class="film-frame">
+<img alt="Cinematic wedding film still: florals" class="premium-photo" data-photo-key="florals" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&amp;fit=crop&amp;w=700&amp;q=86"/>
+<span class="film-counter">00:01:18</span>
+</div>
+<div class="film-frame">
+<img alt="Cinematic wedding film still: portrait" class="premium-photo" data-photo-key="portrait" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&amp;fit=crop&amp;w=700&amp;q=86"/>
+<span class="film-counter">00:01:22</span>
+</div>
+<div class="film-frame">
+<img alt="Cinematic wedding film still: reception" class="premium-photo" data-photo-key="reception" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&amp;fit=crop&amp;w=700&amp;q=86"/>
+<span class="film-counter">00:01:26</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================
+       SECTION 7: THE PHOTOGRAPHY PROCESS
+       =================================================================== -->
+<section class="section process" id="process">
+<div class="container">
+<div class="process-header">
+<span class="tag">The Experience</span>
+<h2>How We Walk With You</h2>
+<p style="color:var(--muted); font-size:15px; margin-top:10px;">A seamless, reassuring journey from our very first conversation to the day your album arrives at your doorstep.</p>
+</div>
+<div class="process-grid">
+<div class="process-card">
+<div class="process-circle">01</div>
+<h3 class="process-step-title">Discover</h3>
+<p class="process-step-desc">
+            We connect over coffee or video call to understand your celebration, family nuances, lighting preferences, and specific vision.
+          </p>
+</div>
+<div class="process-card">
+<div class="process-circle">02</div>
+<h3 class="process-step-title">Curate</h3>
+<p class="process-step-desc">
+            We map out the itinerary, plan shot timing around prime golden hour, and coordinate smoothly with your wedding planners and decorators.
+          </p>
+</div>
+<div class="process-card">
+<div class="process-circle">03</div>
+<h3 class="process-step-title">Document</h3>
+<p class="process-step-desc">
+            On your day, we blend into the background. You revel in your rituals and loved ones while we quietly capture the magic.
+          </p>
+</div>
+<div class="process-card">
+<div class="process-circle">04</div>
+<h3 class="process-step-title">Relive</h3>
+<p class="process-step-desc">
+            Receive hand-graded heirloom photographs and your cinematic film master, followed by fine-art album curation tailored to your approvals.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================
+       SECTION 8: CLIENT LOVE & TRUST (HONEST PLACEHOLDERS)
+       =================================================================== -->
+<section class="section reviews" id="reviews">
+<div class="container">
+<div style="text-align:center; max-width:600px; margin:0 auto 50px;">
+<span class="tag">Words From Our Couples</span>
+<h2 style="font: 500 clamp(32px, 4vw, 50px)/1.15 'Cormorant Garamond', Georgia, serif; color: var(--charcoal);">
+          Cherished Connections
+        </h2>
+<p style="color:var(--muted); font-size:14.5px; margin-top:8px;">Genuine experiences from real couples who trusted us with their once-in-a-lifetime moments.</p>
+</div>
+<div class="reviews-grid">
+<!-- Review 1 -->
+<div class="review-card">
+<div>
+<div class="review-rating">★★★★★</div>
+<p class="review-quote">
+              “ThePhotoHub captured our Chennai wedding with such grace. When we saw our film, my grandmother wept tears of joy. They made us feel so completely at ease.”
+            </p>
+</div>
+<div class="review-author">
+<div class="review-avatar-slot">P&amp;A</div>
+<div>
+<div class="author-name">Priya &amp; Anand</div>
+<div class="author-location">Temple Wedding • Mylapore, Chennai</div>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="review-card">
+<div>
+<div class="review-rating">★★★★★</div>
+<p class="review-quote">
+              “Zero awkward poses! Every picture felt honest, warm, and cinematic. The team was so respectful of our family rituals and elderly guests. Outstanding experience.”
+            </p>
+</div>
+<div class="review-author">
+<div class="review-avatar-slot">D&amp;K</div>
+<div>
+<div class="author-name">Deepika &amp; Karthik</div>
+<div class="author-location">Beachside Celebration • Mahabalipuram</div>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="review-card">
+<div>
+<div class="review-rating">★★★★★</div>
+<p class="review-quote">
+              “Our wedding album is the most treasured object in our living room. The leather binding, the colors, and the way they told our story was pure artistry.”
+            </p>
+</div>
+<div class="review-author">
+<div class="review-avatar-slot">S&amp;R</div>
+<div>
+<div class="author-name">Sneha &amp; Rahul</div>
+<div class="author-location">Destination Wedding • Bengaluru / Chennai</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================
+       SECTION 9: FINAL ENQUIRY CONCIERGE (WITH WHATSAPP AUTOMATION)
+       =================================================================== -->
+<section class="yr" id="yours"><div class="yr-bg"></div><div class="yr-in"><p class="yr-k">Your film</p><h2>What will <em>your</em> story be called?</h2><div class="yr-f"><input id="yrN" placeholder="Your names, e.g. Aarthi &amp; Karthik" maxlength="36" autocomplete="off" aria-label="Your names"><button type="button" id="yrB">Roll the film</button></div><div class="yr-card" id="yrC"><small>A ThePhotoHub Film</small><h3 id="yrT" aria-live="polite"></h3><p>Chennai &bull; 2027 &bull; Directed by love</p><a href="#contact" class="yr-go" id="yrG">Book this film &rarr;</a></div></div></section>
+<section class="section enquiry" id="contact">
+<div class="container">
+<div class="enquiry-card">
+<div class="enquiry-left">
+<span class="tag">Get In Touch</span>
+<h2>Let’s Preserve Your Story Together</h2>
+<p>
+            Whether you are planning a traditional three-day South Indian celebration or an intimate seaside gathering, we would be honored to be part of your story.
+          </p>
+<div class="direct-contact-items">
+<div class="contact-item">
+<svg viewbox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
+<span>Based in Chennai, Tamil Nadu (Available Worldwide)</span>
+</div>
+<div class="contact-item">
+<svg viewbox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+<span>hello@thephotohub.in (Sample Configured Email)</span>
+</div>
+<div class="contact-item">
+<svg viewbox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+<span>+91 98842 19105 (Direct WhatsApp Line)</span>
+</div>
+</div>
+</div>
+<!-- Interactive Quick WhatsApp Form Builder -->
+<div class="enquiry-form">
+<div class="form-title">Quick WhatsApp Availability Check</div>
+<form onsubmit="handleFormWhatsAppSubmit(event)">
+<div class="form-group">
+<label class="form-label" for="coupleNames">Your Names</label>
+<input class="form-input" id="coupleNames" placeholder="e.g. Priya &amp; Gautham" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="eventDates">Wedding Date(s) &amp; City</label>
+<input class="form-input" id="eventDates" placeholder="e.g. November 24, Chennai" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="serviceNeeded">Service Required</label>
+<select class="form-select" id="serviceNeeded">
+<option value="Complete Photo &amp; Cinematography">Complete Wedding Photo &amp; Cinematography</option>
+<option value="Wedding Photography Only">Wedding Photography Only</option>
+<option value="Wedding Cinematography Only">Wedding Cinematography Only</option>
+<option value="Pre-Wedding Shoot &amp; Album">Pre-Wedding Shoot &amp; Heirloom Album</option>
+</select>
+</div>
+<button class="btn-send-whatsapp" type="submit">
+<svg viewbox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.06c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.13.82.84-3.05-.2-.31c-.83-1.33-1.27-2.87-1.27-4.46 0-4.47 3.64-8.11 8.11-8.11 2.17 0 4.2 0.85 5.73 2.38 1.54 1.54 2.38 3.57 2.38 5.73 0 4.47-3.64 8.11-8.11 8.11zm4.44-6.07c-.24-.12-1.44-.71-1.66-.79-.23-.08-.39-.12-.56.12-.17.24-.64.79-.79.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.29.37-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.42 1.02 2.59.12.16 1.76 2.69 4.27 3.77.6.26 1.06.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.21-.16-.45-.28z"></path></svg>
+<span>Send Enquiry to WhatsApp</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================
+       SECTION 10: CINEMATIC FOOTER
+       =================================================================== -->
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="brand-lockup" style="margin-bottom:12px;">
+<svg aria-hidden="true" viewbox="0 0 28 28">
+<path d="M3 25C3 12.5 11.5 3 25 3c0 13-8.5 22-22 22Z" fill="#FFFDF9"></path>
+<path d="M6.5 21.5C10 15 14.5 10.5 20 8" fill="none" stroke="#B79A68" stroke-linecap="round" stroke-width="1.8"></path>
+</svg>
+<span class="brand-name" style="color:#FFFDF9;">ThePhotoHub®</span>
+</div>
+<p>
+            An artisanal wedding photography &amp; cinematography company based in Chennai, dedicated to documenting sacred unions across South India and worldwide.
+          </p>
+</div>
+<div>
+<div class="footer-col-title">Navigation</div>
+<ul class="footer-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="films.html">Films</a></li>
+<li><a href="studio.html">Studio</a></li>
+<li><a href="reserve.html">Reserve a date</a></li>
+</ul>
+</div>
+<div>
+<div class="footer-col-title">Locations</div>
+<ul class="footer-links">
+<li><a href="reserve.html">Chennai Studio</a></li>
+<li><a href="reserve.html">East Coast Road &amp; Mahabs</a></li>
+<li><a href="reserve.html">Coimbatore &amp; Nilgiris</a></li>
+<li><a href="reserve.html">Bengaluru &amp; Mysore</a></li>
+<li><a href="reserve.html">Destination Inquiries</a></li>
+</ul>
+</div>
+<div>
+<div class="footer-col-title">Connect Directly</div>
+<p style="font-size:13.5px; color:var(--dark-muted); line-height:1.6; margin-bottom:16px;">
+            Speak directly with our principal team regarding wedding calendar availability.
+          </p>
+<a class="btn-whatsapp" href="javascript:void(0)" onclick="openWhatsAppEnquiry('Footer')" style="display:inline-flex;">
+<svg viewbox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.06c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.13.82.84-3.05-.2-.31c-.83-1.33-1.27-2.87-1.27-4.46 0-4.47 3.64-8.11 8.11-8.11 2.17 0 4.2 0.85 5.73 2.38 1.54 1.54 2.38 3.57 2.38 5.73 0 4.47-3.64 8.11-8.11 8.11zm4.44-6.07c-.24-.12-1.44-.71-1.66-.79-.23-.08-.39-.12-.56.12-.17.24-.64.79-.79.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.29.37-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.42 1.02 2.59.12.16 1.76 2.69 4.27 3.77.6.26 1.06.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.21-.16-.45-.28z"></path></svg>
+<span>WhatsApp Us Now</span>
+</a>
+</div>
+</div>
+<div class="footer-bottom">
+<div>© <span id="currentYear"></span> ThePhotoHub®. All rights reserved. Chennai, Tamil Nadu, India.</div>
+<div>Preserving fleeting human connections since 2018.</div>
+</div>
+</div>
+</footer>
+<!-- Lightbox Modal for Portfolio Details -->
+<div class="lightbox" id="lightboxModal" onclick="closeLightbox(event)">
+<div class="lightbox-inner">
+<button aria-label="Close image preview" class="lightbox-close" onclick="closeLightboxDirect()">×</button>
+<img alt="Preview" class="lightbox-img premium-photo" decoding="async" id="lightboxImg" src=""/>
+<div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+</div>
+<!-- ===================================================================
+     JAVASCRIPT LOGIC (CENTRAL CONFIG, CAROUSEL, FILTERS, WHATSAPP)
+     =================================================================== -->
+<script>
+(() => {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     1. CENTRAL CONFIGURATION (REPLACE WITH YOUR BUSINESS VALUES HERE)
+     ------------------------------------------------------------------ */
+  window.THEPHOTOHUB_CONFIG = {
+    // Put your exact 10 or 12 digit WhatsApp phone number (with country code, no + or spaces)
+    // Example: '919884219105' for India (+91)
+    whatsappNumber: '919884219105',
+    defaultMessage: 'Hello ThePhotoHub! I am exploring your wedding photography and cinematography services for our celebration. Could you please share your availability and package details?'
+  };
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const mobileMQ = matchMedia('(max-width: 820px)');
+
+  // Year in footer
+  $('#currentYear').textContent = new Date().getFullYear();
+
+  /* ------------------------------------------------------------------
+     2. WHATSAPP CONCIERGE HELPERS
+     ------------------------------------------------------------------ */
+  window.openWhatsAppEnquiry = (sourceLabel = 'Website') => {
+    const phone = window.THEPHOTOHUB_CONFIG.whatsappNumber;
+    const msg = encodeURIComponent(`${window.THEPHOTOHUB_CONFIG.defaultMessage} [Referred from: ${sourceLabel}]`);
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+  };
+
+  window.handleFormWhatsAppSubmit = (e) => {
+    e.preventDefault();
+    const names = $('#coupleNames').value.trim();
+    const dates = $('#eventDates').value.trim();
+    const service = $('#serviceNeeded').value;
+    const phone = window.THEPHOTOHUB_CONFIG.whatsappNumber;
+
+    const text = `Hello ThePhotoHub team! My name is ${names}. We are planning our celebration on ${dates} and are interested in your ${service}. Could you please share your availability and pricing?`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
+  /* ------------------------------------------------------------------
+     3. STICKY HEADER & MOBILE DRAWER
+     ------------------------------------------------------------------ */
+  const header = $('#siteHeader');
+  const menuToggle = $('#menuToggle');
+  const mobileNav = $('#mobileNav');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+  }
+  window.closeMobileNav = () => {
+    if (mobileNav) mobileNav.classList.remove('open');
+  };
+
+  /* ------------------------------------------------------------------
+     4. CURATED PORTFOLIO FILTERING
+     ------------------------------------------------------------------ */
+  const filterBtns = $$('.filter-btn');
+  const galleryItems = $$('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.getAttribute('data-filter');
+
+      galleryItems.forEach(item => {
+        const cat = item.getAttribute('data-category');
+        if (target === 'all' || cat === target) {
+          item.style.display = 'block';
+          setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 20);
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(12px)';
+          setTimeout(() => { item.style.display = 'none'; }, 260);
+        }
+      });
+    });
+  });
+
+  /* ------------------------------------------------------------------
+     5. LIGHTBOX PREVIEW
+     ------------------------------------------------------------------ */
+  const lightbox = $('#lightboxModal');
+  const lightboxImg = $('#lightboxImg');
+  const lightboxCaption = $('#lightboxCaption');
+
+  window.openLightbox = (element) => {
+    const img = $('img', element);
+    const title = $('.gallery-item-title', element);
+    const badge = $('.gallery-badge', element);
+    if (!img) return;
+    lightboxImg.src = img.src;
+    lightboxCaption.innerHTML = (title ? title.innerText : '') + (badge ? ` <span style="font-size:14px; opacity:0.7;">— ${badge.innerText}</span>` : '');
+    lightbox.classList.add('active');
+  };
+
+  window.closeLightbox = (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+    }
+  };
+  window.closeLightboxDirect = () => {
+    lightbox.classList.remove('active');
+  };
+
+  /* ------------------------------------------------------------------
+     6. THE SIGNATURE CENTER-SHRINK CAROUSEL (FROM PROVEN GEOMETRY)
+     ------------------------------------------------------------------ */
+  const carousel = $('#carousel');
+  const PLAY_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="#FFFDF9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3l1.6-2.2h6.8L17 8.5h3a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.4"/></svg>';
+
+  function wireImage(img) {
+    const ok = () => img.classList.add('ready');
+    if (img.complete && img.naturalWidth) ok();
+    else img.addEventListener('load', ok, { once: true });
+    img.addEventListener('error', () => { img.style.display = 'none'; }, { once: true });
+  }
+
+  const baseNodes = $$('.card', carousel);
+  const cards = baseNodes.map(node => {
+    const play = $('.play', node);
+    if (play) play.innerHTML = PLAY_SVG;
+    wireImage($('img', node));
+    return { node, play };
+  });
+
+  const clock = document.documentElement.animate(
+    [{ opacity: 1 }, { opacity: 1 }], { duration: 1e9 }
+  );
+  const now = () => Number(clock.currentTime) || 0;
+
+  const BAND_DESKTOP = 460;
+  const BAND_MOBILE = 380;
+  const bandUnits = () => (mobileMQ.matches ? BAND_MOBILE : BAND_DESKTOP);
+  const PITCH = 196;
+  const AUTO = 44;
+  const K_PUSH = 0.082;
+  const RADIUS = 18;
+  const geo = { s: 1, W: 1440, E: 680, cy0: 230 };
+  let N = cards.length, LOOP = PITCH * N;
+
+  function measure() {
+    if (!carousel) return;
+    const w = carousel.clientWidth, h = carousel.clientHeight;
+    if (!w || !h) return;
+    const BAND = bandUnits();
+    geo.s = h / BAND;
+    geo.W = w / geo.s;
+    geo.E = Math.max(260, geo.W * 0.47);
+    geo.cy0 = BAND / 2;
+    carousel.style.setProperty('--k', geo.s + 'px');
+  }
+
+  function ensureCards() {
+    if (!carousel) return;
+    while (cards.length * PITCH < geo.W + 680) {
+      baseNodes.forEach(base => {
+        const node = base.cloneNode(true);
+        node.setAttribute('aria-hidden', 'true');
+        $('img', node).alt = '';
+        carousel.appendChild(node);
+        wireImage($('img', node));
+        cards.push({ node, play: $('.play', node) });
+      });
+    }
+    N = cards.length; LOOP = PITCH * N;
+  }
+
+  const f1 = n => (Math.round(n * 10) / 10);
+
+  function roundedQuad(p, r) {
+    let d = '';
+    for (let i = 0; i < 4; i++) {
+      const prev = p[(i + 3) % 4], cur = p[i], next = p[(i + 1) % 4];
+      let ax = prev[0] - cur[0], ay = prev[1] - cur[1];
+      let bx = next[0] - cur[0], by = next[1] - cur[1];
+      const la = Math.hypot(ax, ay), lb = Math.hypot(bx, by);
+      const rr = Math.min(r, la / 2, lb / 2);
+      ax /= la; ay /= la; bx /= lb; by /= lb;
+      const sx = cur[0] + ax * rr, sy = cur[1] + ay * rr;
+      const ex = cur[0] + bx * rr, ey = cur[1] + by * rr;
+      d += (i ? 'L' : 'M') + f1(sx) + ' ' + f1(sy) + 'Q' + f1(cur[0]) + ' ' + f1(cur[1]) + ' ' + f1(ex) + ' ' + f1(ey);
+    }
+    return d + 'Z';
+  }
+
+  // U-shaped height curve: Center ~215px, Mid ~280px, Edges ~380px
+  function edgeH(q) {
+    const clampedQ = Math.min(Math.max(q, 0), 1.25);
+    return 215 + 165 * Math.pow(clampedQ, 1.35);
+  }
+
+  function edgeCY(q) {
+    return geo.cy0; // Balanced along consistent visual centerline
+  }
+
+  function layout(scroll) {
+    const { s, W, E } = geo, cx = W / 2, inset = 12, icon = 28;
+    for (let i = 0; i < N; i++) {
+      const c = cards[i];
+      let t = i * PITCH - scroll;
+      t = ((t + LOOP / 2) % LOOP + LOOP) % LOOP - LOOP / 2;
+      const xc = cx + t * (1 + K_PUSH * (t / E) * (t / E));
+      const dc = Math.abs(xc - cx) / E;
+      const w = 168 + 44 * Math.min(dc * dc, 1.5);
+      const xL = xc - w / 2, xR = xc + w / 2;
+
+      if (xR < -50 || xL > W + 50) { c.node.style.visibility = 'hidden'; continue; }
+
+      const qL = Math.abs(xL - cx) / E, qR = Math.abs(xR - cx) / E;
+      const hL = edgeH(qL), hR = edgeH(qR);
+      const yL = edgeCY(qL), yR = edgeCY(qR);
+
+      const TL = [xL, yL - hL / 2], TR = [xR, yR - hR / 2],
+            BR = [xR, yR + hR / 2], BL = [xL, yL + hL / 2];
+      const minY = Math.min(TL[1], TR[1]), maxY = Math.max(BL[1], BR[1]);
+
+      const ox = xL, oy = minY;
+      const pts = [TL, TR, BR, BL].map(p => [(p[0] - ox) * s, (p[1] - oy) * s]);
+      const st = c.node.style;
+
+      st.visibility = 'visible';
+      st.transform = 'translate3d(' + f1(ox * s) + 'px,' + f1(oy * s) + 'px,0)';
+      st.width = f1(w * s) + 'px';
+      st.height = f1((maxY - minY) * s) + 'px';
+      st.clipPath = "path('" + roundedQuad(pts, RADIUS * s) + "')";
+
+      if (c.play) {
+        c.play.style.transform = 'translate3d(' + f1(inset * s) + 'px,' + f1((BL[1] - oy - inset - icon) * s) + 'px,0)';
+      }
+    }
+  }
+
+  const MAX_FLICK = 3600;
+  const FRICTION = 0.04;
+  let scroll = 0, vel = 0, momentum = false, resume = 1, dragging = false;
+  let lastX = 0, lastT = 0, last = now(), dirty = true;
+
+  if (carousel) {
+    carousel.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragging = true; momentum = false; vel = 0;
+      lastX = e.clientX; lastT = e.timeStamp;
+      try { carousel.setPointerCapture(e.pointerId); } catch (_) {}
+      carousel.classList.add('dragging');
+    });
+
+    carousel.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      const dx = e.clientX - lastX;
+      const dt = (e.timeStamp - lastT) / 1000;
+      scroll -= dx / geo.s;
+      if (dt > 0.001) {
+        const inst = -(dx / geo.s) / dt;
+        vel = vel * 0.55 + inst * 0.45;
+      }
+      lastX = e.clientX; lastT = e.timeStamp; dirty = true;
+    });
+
+    const release = (e) => {
+      if (!dragging) return;
+      dragging = false;
+      carousel.classList.remove('dragging');
+      try { carousel.releasePointerCapture(e.pointerId); } catch (_) {}
+      if (e.timeStamp - lastT > 90 || reduce.matches) vel = 0;
+      vel = Math.max(-MAX_FLICK, Math.min(MAX_FLICK, vel));
+      if (Math.abs(vel) > 20) momentum = true; else { momentum = false; resume = 0; }
+    };
+
+    carousel.addEventListener('pointerup', release);
+    carousel.addEventListener('pointercancel', release);
+    carousel.addEventListener('dragstart', e => e.preventDefault());
+  }
+
+  document.addEventListener('visibilitychange', () => { last = now(); });
+
+  function tick() {
+    const t = now();
+    const dt = Math.min(Math.max((t - last) / 1000, 0), 0.05);
+    last = t;
+    if (!dragging && dt > 0) {
+      if (momentum) {
+        scroll += vel * dt;
+        vel *= Math.pow(FRICTION, dt);
+        if (Math.abs(vel) < 14) { momentum = false; vel = 0; resume = 0; }
+        dirty = true;
+      } else if (!reduce.matches) {
+        resume = Math.min(1, resume + dt / 0.9);
+        scroll += AUTO * resume * resume * dt;
+        dirty = true;
+      }
+    }
+    if (dirty && carousel) { layout(scroll); dirty = false; }
+    requestAnimationFrame(tick);
+  }
+
+  /* ------------------------------------------------------------------
+     7. LIFECYCLE & RESIZE
+     ------------------------------------------------------------------ */
+  const onResize = () => { measure(); ensureCards(); dirty = true; };
+  const ro = 'ResizeObserver' in window ? new ResizeObserver(onResize) : null;
+  if (ro && carousel) ro.observe(carousel); else addEventListener('resize', onResize);
+  mobileMQ.addEventListener('change', onResize);
+  reduce.addEventListener('change', () => { resume = reduce.matches ? 0 : 1; });
+
+  measure();
+  ensureCards();
+  if (carousel) layout(scroll);
+  last = now();
+  requestAnimationFrame(tick);
+
+  addEventListener('pagehide', () => { if (ro) ro.disconnect(); clock.cancel(); }, { once: true });
+})();
+</script>
+<div id="pre"><i></i><i></i><b>ThePhotoHub®<small id="pc">000</small></b></div><div id="bar"></div><div id="grain"></div><div id="cur"><span id="cl"></span></div><div id="curd"></div>
+<script>
+(()=>{const $=(s,r=document)=>[...r.querySelectorAll(s)],D=document.documentElement,rm=matchMedia('(prefers-reduced-motion:reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+D.classList.add('has-js');
+/* preloader + hero choreography */
+const pre=document.getElementById('pre'),pc=document.getElementById('pc');let t0=performance.now(),dn=0;
+const go=()=>{if(dn)return;dn=1;pc.textContent='100';pre.classList.add('go');setTimeout(()=>{D.classList.add('ready');pre.remove()},700)};
+(function tick(){const p=Math.min(100,(performance.now()-t0)/12);pc.textContent=String(Math.floor(p)).padStart(3,'0');if(p<100&&!dn)requestAnimationFrame(tick);else go()})();setTimeout(go,3000);
+/* reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+const car=document.getElementById('carousel');
+$('.section .container > *, .section h2, .section p, .section li, .gallery-grid > *, .section [class*="card"]').forEach((el,i)=>{if(car&&car.contains(el)||el.closest('form'))return;el.classList.add('rv');el.style.setProperty('--i',i%4);io.observe(el)});
+$('.section img,.signature-interlude img').forEach(im=>{if(car&&car.contains(im)||im.closest('.lightbox'))return;im.classList.add('imr');io.observe(im)});
+/* count-up */
+$('.section *').filter(e=>!e.children.length&&/^\d[\d,.]*\+?$/.test(e.textContent.trim())).forEach(e=>{const m=e.textContent.trim(),n=parseFloat(m.replace(/,/g,'')),s=m.endsWith('+')?'+':'';e.classList.add('stat');new IntersectionObserver((x,o)=>{if(x[0].isIntersecting){o.disconnect();const st=performance.now();(function f(){const k=Math.min(1,(performance.now()-st)/1800),v=Math.round(n*(1-Math.pow(1-k,4)));e.textContent=v.toLocaleString('en-IN')+s;if(k<1)requestAnimationFrame(f)})()}}).observe(e)});
+/* scroll: progress, header, marquee velocity, parallax */
+const bar=document.getElementById('bar'),hd=document.getElementById('siteHeader'),rows=$('.mq-row'),pars=$('.imr');let ly=scrollY,vel=0,off=[0,0];
+(function loop(){const y=scrollY,h=D.scrollHeight-innerHeight;bar.style.transform='scaleX('+(y/h)+')';vel+=((y-ly)-vel)*.1;
+if(hd){hd.classList.toggle('hide',y>ly&&y>500&&!document.getElementById('mobileNav')?.classList.contains('open'))}
+rows.forEach((r,i)=>{off[i]+=(+r.dataset.d)*(.7+Math.abs(vel)*.35);const w=r.scrollWidth/3;if(off[i]>w)off[i]-=w;if(off[i]<-w)off[i]+=w;r.style.transform='translateX('+(-w-off[i])+'px)'});
+if(!rm)pars.forEach(im=>{const r=im.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;if(im.classList.contains('in'))im.style.translate='0 '+((r.top+r.height/2-innerHeight/2)*-.06)+'px'});
+ly=y;requestAnimationFrame(loop)})();
+/* marquee spotlight */
+const mq=document.getElementById('mq');mq.addEventListener('pointermove',e=>{const r=mq.getBoundingClientRect();mq.style.setProperty('--mx',e.clientX-r.left+'px');mq.style.setProperty('--my',e.clientY-r.top+'px')});
+/* cursor, magnetic buttons, tilt */
+if(fine&&!rm){D.classList.add('cur-on');const c=document.getElementById('cur'),d=document.getElementById('curd'),cl=document.getElementById('cl');let x=0,y=0,cx=0,cy=0;
+addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;d.style.transform='translate('+x+'px,'+y+'px)';
+const t=e.target.closest('#carousel,.gallery-grid > *,a,button,.btn-hero-cta,input,select,textarea,.mq');c.classList.remove('big','link');
+if(t){if(t.id==='carousel'){c.classList.add('big');cl.textContent='Drag'}else if(t.matches('.gallery-grid > *')){c.classList.add('big');cl.textContent='View'}else if(!t.matches('.mq,input,select,textarea'))c.classList.add('link')}});
+(function f(){cx+=(x-cx)*.17;cy+=(y-cy)*.17;c.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(f)})();
+$('.btn-hero-cta,.btn-whatsapp,.nav-links a').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform='translate('+(e.clientX-r.left-r.width/2)*.3+'px,'+(e.clientY-r.top-r.height/2)*.4+'px)'});b.addEventListener('pointerleave',()=>b.style.transform='')});
+$('.gallery-grid > *').forEach(g=>{g.classList.add('tilt');g.addEventListener('pointermove',e=>{const r=g.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;g.classList.add('on');g.style.transform='perspective(900px) rotateY('+px*9+'deg) rotateX('+-py*9+'deg) translateZ(14px)'});g.addEventListener('pointerleave',()=>{g.classList.remove('on');g.style.transform=''})})}
+})();
+</script>
+<button aria-expanded="false" aria-label="Open menu" id="mb">Menu</button>
+<div aria-hidden="true" id="mn"><div class="bg"></div><div class="bg"></div><nav><a data-bg="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" href="index.html" style="--n:0"><span>Home</span></a><a data-bg="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" href="films.html" style="--n:1"><span>Films</span></a><a data-bg="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" href="studio.html" style="--n:2"><span>Studio</span></a><a data-bg="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" href="reserve.html" style="--n:3"><span>Reserve</span></a></nav><div class="ft">Chennai • Tamil Nadu • Worldwide</div></div>
+<script>
+(()=>{const $=(s)=>[...document.querySelectorAll(s)],cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),ez=t=>1-Math.pow(1-t,3);
+const xp=document.getElementById('xp'),xi=document.getElementById('xpi'),im=xi.firstElementChild,xt=document.getElementById('xpt'),x2=document.getElementById('xpt2'),hs=document.getElementById('hs'),ht=document.getElementById('hst'),hp=document.getElementById('hsp');
+const size=()=>{hs.style.height=(ht.scrollWidth-innerWidth+innerHeight)+'px'};addEventListener('resize',size);addEventListener('load',size);size();
+(function L(){let r=xp.getBoundingClientRect(),p=cl(-r.top/(r.height-innerHeight)),e=ez(cl(p/.6));
+xi.style.clipPath='inset('+(1-e)*30+'% '+(1-e)*36+'% round '+(1-e)*28+'px)';im.style.transform='scale('+(1.35-e*.35)+')';
+xt.style.transform='scale('+(1+p*.25)+')';xt.style.opacity=1-cl((p-.55)/.2);x2.style.opacity=cl((p-.7)/.2);x2.style.transform='translateY('+(1-cl((p-.7)/.2))*30+'px)';
+r=hs.getBoundingClientRect();p=cl(-r.top/(r.height-innerHeight));ht.style.transform='translateX('+(-p*(ht.scrollWidth-innerWidth))+'px)';hp.style.transform='scaleX('+p+')';requestAnimationFrame(L)})();
+const mb=document.getElementById('mb'),mn=document.getElementById('mn'),bgs=[...mn.querySelectorAll('.bg')];let k=0;
+const tg=o=>{mn.classList.toggle('open',o);mb.textContent=o?'Close':'Menu';mb.setAttribute('aria-expanded',o);mn.setAttribute('aria-hidden',!o);document.body.classList.toggle('mo',o)};
+mb.onclick=()=>tg(!mn.classList.contains('open'));addEventListener('keydown',e=>{if(e.key==='Escape')tg(false)});
+mn.querySelectorAll('a').forEach(a=>{a.onmouseenter=()=>{k^=1;bgs[k].style.backgroundImage='url('+a.dataset.bg+')';bgs[k].classList.add('on');bgs[k^1].classList.remove('on')};a.onclick=()=>tg(false)});
+mb.addEventListener('pointermove',e=>{const r=mb.getBoundingClientRect();mb.style.transform='translate('+(e.clientX-r.left-r.width/2)*.3+'px,'+(e.clientY-r.top-r.height/2)*.3+'px)'});mb.addEventListener('pointerleave',()=>mb.style.transform='');
+})();
+</script>
+<canvas id="dust"></canvas>
+<div aria-label="Back to top" id="bc" role="button" tabindex="0"><span class="ring"></span><span class="tx"><span class="n" id="bn">Welcome</span></span></div>
+<div id="fl" role="status"><i aria-label="Dismiss" id="flx">×</i><b>Now booking 2027</b>Only a few weekend dates left this season. Check your date?<br/><a href="reserve.html">Check availability →</a></div>
+<script>
+(()=>{const $=s=>[...document.querySelectorAll(s)],rm=matchMedia('(prefers-reduced-motion:reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+/* gold dust */
+const cv=document.getElementById('dust'),cx=cv.getContext('2d');let W,H,ps=[],ly=scrollY;
+const rs=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};rs();addEventListener('resize',rs);
+if(!rm)for(let i=0;i<(innerWidth<700?24:55);i++)ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,v:Math.random()*.4+.15,a:Math.random()*.5+.2,ph:Math.random()*6});
+(function d(){cx.clearRect(0,0,W,H);const sv=(scrollY-ly)*.35;ly=scrollY;ps.forEach(p=>{p.y-=p.v+sv*p.r*.4;p.x+=Math.sin(p.ph+=.01)*.3;if(p.y<-5)p.y=H+5;if(p.y>H+5)p.y=-5;cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fillStyle='rgba(183,154,104,'+p.a*.55+')';cx.shadowBlur=8;cx.shadowColor='#B79A68';cx.fill()});requestAnimationFrame(d)})();
+/* breadcrumb with active-section tracking */
+const map=[['top','Welcome'],['mq','The Studio'],['xp','Heirlooms'],['hs','Chapters'],['ss','Our Craft'],['philosophy','Philosophy'],['weddings','Weddings'],['portfolio','Portfolio'],['services','Services'],['process','Process'],['reviews','Reviews'],['yours','Your Film'],['contact','Enquire']].map(a=>[document.getElementById(a[0]),a[1]]).filter(a=>a[0]);
+const bc=document.getElementById('bc'),bn=document.getElementById('bn'),ring=bc.firstElementChild;let cur='Welcome';
+const swap=t=>{if(t===cur)return;cur=t;const o=bn.cloneNode(true);o.removeAttribute('id');o.className='o';bn.parentNode.appendChild(o);bn.className='w';bn.textContent=t;requestAnimationFrame(()=>requestAnimationFrame(()=>{bn.className='n';}));setTimeout(()=>o.remove(),800)};
+bc.onclick=()=>scrollTo({top:0,behavior:'smooth'});bc.onkeydown=e=>{if(e.key==='Enter')bc.click()};
+const fl=document.getElementById('fl');let dis=0;document.getElementById('flx').onclick=()=>{dis=1;fl.classList.remove('show')};
+const hero=document.getElementById('top'),hl=hero.querySelector('.hero-headline'),hsb=hero.querySelector('.hero-sub'),seal=document.getElementById('seal');
+(function L(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight,mid=innerHeight*.5;let c=map[0][1];map.forEach(m=>{if(m[0].getBoundingClientRect().top<mid)c=m[1]});swap(c);
+ring.parentNode.style.setProperty('--p',y/h*100);bc.classList.toggle('show',y>innerHeight*.5);if(!dis)fl.classList.toggle('show',y>innerHeight*1.6&&y<h-innerHeight*1.2);
+if(y<innerHeight*1.2&&!rm){hl.style.transform='translateY('+y*.16+'px) scale('+(1-y/innerHeight*.05)+')';hsb.style.transform='translateX(-50%) translateY('+y*.1+'px)'}
+if(seal)seal.firstElementChild.style.transform='rotate('+y*.25+'deg)';requestAnimationFrame(L)})();
+/* hero seal */
+hero.insertAdjacentHTML('beforeend','<div id="seal"><svg viewBox="0 0 120 120"><defs><path id="cp" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#cp">Scroll &bull; Explore &bull; Scroll &bull; Discover &bull;</textPath></text><circle cx="60" cy="60" r="3" fill="#B79A68"/></svg></div>');
+/* orbs in marquee */
+const mq=document.getElementById('mq');mq.insertAdjacentHTML('afterbegin','<i class="orb" style="width:36vw;height:36vw;left:-8vw;top:-12vw"></i><i class="orb" style="width:28vw;height:28vw;right:-6vw;bottom:-10vw;animation-delay:-6s"></i>');
+/* scramble tags */
+const ch='ABCDEFGHIJKLMNOPQRSTUVWXYZ';const sc=new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.unobserve(e.target);const t=e.target,f=t.dataset.t;let n=0;const iv=setInterval(()=>{t.lastChild.textContent=f.split('').map((c,i)=>c===' '||i<n?c:ch[Math.random()*26|0]).join('');if(n++>=f.length){clearInterval(iv);t.lastChild.textContent=f}},35)}),{threshold:1});
+if(!rm)$('.tag').forEach(t=>{const n=[...t.childNodes].reverse().find(x=>x.nodeType===3&&x.textContent.trim());if(n){t.dataset.t=n.textContent.trim();n.textContent=t.dataset.t;t.appendChild(n);sc.observe(t)}});
+/* ripple */
+$('.btn-hero-cta,.btn-whatsapp,.btn-primary,button[type=submit]').forEach(b=>b.addEventListener('pointerdown',e=>{const r=b.getBoundingClientRect(),z=Math.max(r.width,r.height)*2,i=document.createElement('i');i.className='rp';i.style.cssText='width:'+z+'px;height:'+z+'px;left:'+(e.clientX-r.left-z/2)+'px;top:'+(e.clientY-r.top-z/2)+'px';b.appendChild(i);setTimeout(()=>i.remove(),700)}));
+/* 3D tilt + glare for cards */
+if(fine&&!rm)$('[class*="card"],[class*="step"]').forEach(g=>{if(g.closest('#carousel,.lightbox,form,#mn')||g.offsetWidth>innerWidth*.8||g.classList.contains('tilt'))return;g.classList.add('tilt3');g.addEventListener('pointermove',e=>{const r=g.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;g.classList.add('on');g.style.setProperty('--gx',px*100+'%');g.style.setProperty('--gy',py*100+'%');g.style.transform='perspective(1000px) rotateY('+(px-.5)*10+'deg) rotateX('+(.5-py)*10+'deg) translateY(-6px)'});g.addEventListener('pointerleave',()=>{g.classList.remove('on');g.style.transform=''})});
+})();
+</script>
+<script id="world-class-photography-motion">
+(()=>{
+  const imgs=[...document.querySelectorAll('img.premium-photo')];
+  imgs.forEach((img,i)=>{
+    // Ensure photography fills its art-directed frame without distorting proportions.
+    img.style.objectFit='cover';
+    if(!img.hasAttribute('loading') && i>7) img.loading='lazy';
+    // Descriptive alt text is retained; decorative film-strip images remain decorative.
+    const holder=img.closest('.card,.fr,.visual-frame-main,.visual-frame-secondary,.film-frame,.hs-c,.gallery-item,.service-image');
+    if(holder && !holder.classList.contains('photo-reveal')) holder.classList.add('photo-reveal');
+  });
+  if(!('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('photo-reveal-ready');
+  const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target)}
+  }),{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+  document.querySelectorAll('.photo-reveal').forEach(el=>io.observe(el));
+})();
+</script>
+
+<script id="world-class-image-runtime">
+(() => {
+  const safeFallback = "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=84";
+  document.querySelectorAll("img.premium-photo").forEach((img, i) => {
+    if (img.id === "lightboxImg") return;
+    img.decoding = "async";
+    if (i < 8) { img.loading = "eager"; img.fetchPriority = "high"; }
+    else if (!img.loading) img.loading = "lazy";
+    img.addEventListener("error", () => {
+      if (img.dataset.fallbackUsed) return;
+      img.dataset.fallbackUsed = "1";
+      img.src = safeFallback;
+      img.style.clipPath = "inset(0)";
+      img.style.visibility = "visible";
+      img.style.opacity = "1";
+    });
+    // Ensure every image is visible even if the scroll observer never fires.
+    img.style.visibility = "visible";
+    if (img.classList.contains("imr")) img.classList.add("in");
+  });
+  // Fail-safe for any elements left waiting for an intersection reveal.
+  setTimeout(() => {
+    document.querySelectorAll(".imr, .rv").forEach(el => el.classList.add("in"));
+  }, 1800);
+})();
+</script>
+<script id="pro4-js">
+(()=>{const $=s=>[...document.querySelectorAll(s)],cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* unified colour grade + light sweep on every photo frame */
+const sel='.card,.fr,.visual-frame-main,.visual-frame-secondary,.film-frame,.hs-c .fr,.gallery-item,.service-image';
+$(sel).forEach(h=>{if(h.querySelector('.gr')||!h.querySelector('img'))return;if(getComputedStyle(h).position==='static')h.style.position='relative';h.insertAdjacentHTML('beforeend','<i class="gr"></i>')});
+const lv=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('live',e.isIntersecting)),{rootMargin:'-28% 0px -28% 0px'});
+$('img.premium-photo').forEach(i=>{if(!i.closest('#carousel'))lv.observe(i)});
+/* product-storytelling stage */
+const ss=document.getElementById('ss'),L=[...ss.querySelectorAll('.ss-l')],T=[...ss.querySelectorAll('.ss-t')],H=[...ss.querySelectorAll('.ss-h')],K=[...ss.querySelectorAll('.ss-k i')],N=document.getElementById('ssn');let ci=-1;
+(function f(){const r=ss.getBoundingClientRect(),p=cl(-r.top/(r.height-innerHeight)),i=Math.min(2,Math.floor(p*3)),t=p*3-i;
+if(i!==ci){ci=i;[L,T,H,K].forEach(a=>a.forEach((e,j)=>e.classList.toggle('on',j===i)));N.textContent='0'+(i+1)}
+L[i].firstElementChild.style.transform='scale('+(1.18-Math.min(1,t)*.12)+') translateY('+(t-.5)*-24+'px)';
+ss.style.setProperty('--bo',cl((p-.9)/.1));requestAnimationFrame(f)})();
+/* floating polaroids with mouse + scroll depth */
+const ph=document.getElementById('philosophy');ph.style.position='relative';ph.insertAdjacentHTML('afterbegin',`<div class="pol a" data-d="22"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=82" alt=""><span>Chennai, 2025</span></div><div class="pol b" data-d="-30"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=500&q=82" alt=""><span>Golden hour</span></div>`);
+const P=[...ph.querySelectorAll('.pol')];let mx=0,my=0;
+if(!rm){addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+(function g(){const r=ph.getBoundingClientRect(),s=cl((innerHeight-r.top)/(innerHeight+r.height))-.5;P.forEach(p=>{const d=+p.dataset.d;p.style.transform='translate('+mx*d+'px,'+(my*d+s*d*-6)+'px)'});requestAnimationFrame(g)})()}
+})();
+</script>
+<script id="pro5-js">
+(()=>{const $=q=>document.querySelector(q),cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const ss=$('#ss'),sc=ss.querySelector('.ss-s');
+sc.insertAdjacentHTML('beforeend','<div class="vf"><i></i><i></i><i></i><i></i><em id="rec"></em></div>');
+const tags=[...ss.querySelectorAll('.ss-h span')].map(e=>e.textContent);
+ss.querySelectorAll('.ss-t').forEach((t,i)=>t.insertAdjacentHTML('afterbegin','<span class="ss-tag">'+tags[i]+'</span>'));
+const rec=$('#rec'),pd=n=>String(n).padStart(2,'0');
+(function f(){const r=ss.getBoundingClientRect(),p=cl(-r.top/(r.height-innerHeight)),t=p*42;rec.textContent='REC  00:00:'+pd(Math.floor(t))+':'+pd(Math.floor(t%1*24));requestAnimationFrame(f)})();
+const inp=$('#yrN'),card=$('#yrC'),T=$('#yrT');
+const show=()=>{const v=inp.value.trim();if(!v){card.classList.remove('on');return}{const q=c=>c.replace(/&/g,'&amp;').replace(/</g,'&lt;');let n=0;T.innerHTML=v.split(/\s+/).map(w=>'<span class="w">'+[...w].map(c=>'<span class="l" style="--i:'+(n++)+'">'+q(c)+'</span>').join('')+'</span>').join(' ')}card.classList.add('on');
+document.querySelectorAll('.pol.a span').forEach(e=>e.textContent=v.slice(0,22)+', 2027')};
+inp.addEventListener('input',()=>{clearTimeout(inp._t);inp._t=setTimeout(show,350)});$('#yrB').onclick=()=>{show();if(!inp.value.trim())inp.focus()};inp.addEventListener('keydown',e=>{if(e.key==='Enter')show()});
+$('#yrG').addEventListener('click',e=>{e.preventDefault();const n=document.getElementById('coupleNames');if(n&&inp.value.trim())n.value=inp.value.trim();document.getElementById('contact').scrollIntoView({behavior:'smooth'})});
+})();
+</script>
+<script id="pro6-js">
+(()=>{const sv=document.getElementById('services'),rows=[...sv.querySelectorAll('.service-row')],hd=sv.querySelector('.container');if(!rows.length)return;
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const D=rows.map(r=>({t:r.querySelector('.service-title').textContent.trim(),d:r.querySelector('.service-desc').textContent.trim().replace(/\s+/g,' '),f:[...r.querySelectorAll('.service-features li')].map(l=>l.textContent.trim()),im:r.querySelector('.service-media img').src,a:r.querySelector('.service-cta-link'),}));
+const pad=n=>String(n+1).padStart(2,'0');
+const el=document.createElement('div');el.className='su';
+el.innerHTML='<div class="su-l" role="tablist">'+D.map((x,i)=>`<button class="su-i" role="tab" aria-selected="false"><small>${pad(i)}</small><span>${esc(x.t)}</span><i></i></button>`).join('')+'</div><div class="su-st"><i class="gr"></i>'+D.map(x=>`<div class="su-im"><img src="${esc(x.im)}" alt="" loading="lazy"></div>`).join('')+'<div class="su-pn">'+D.map(x=>`<div class="su-p"><p>${esc(x.d)}</p><ul>${x.f.map((f,k)=>`<li style="--k:${k}">${esc(f)}</li>`).join('')}</ul></div>`).join('')+'</div></div>';
+hd.appendChild(el);
+const P=[...el.querySelectorAll('.su-p')];
+D.forEach((x,i)=>{const a=document.createElement('a');a.className='su-go';a.href='javascript:void(0)';a.setAttribute('onclick',x.a.getAttribute('onclick')||'');a.innerHTML=esc(x.a.textContent.replace('→','').trim())+' <span>&rarr;</span>';P[i].appendChild(a)});
+const I=[...el.querySelectorAll('.su-i')],M=[...el.querySelectorAll('.su-im')];let cur=-1,t0=0,hov=0;const DUR=7000;
+const set=i=>{if(i===cur)return;cur=i;t0=performance.now();[I,M,P].forEach(a=>a.forEach((e,j)=>e.classList.toggle('on',j===i)));I.forEach((e,j)=>e.setAttribute('aria-selected',j===i))};
+I.forEach((b,i)=>{b.onclick=()=>set(i);b.onmouseenter=()=>{if(matchMedia('(hover:hover)').matches)set(i)}});
+el.addEventListener('pointerenter',()=>hov=1);el.addEventListener('pointerleave',()=>{hov=0;t0=performance.now()});
+let vis=0;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(el);
+set(0);sv.classList.add('suite-on');
+(function f(n){if(vis&&!hov&&!matchMedia('(prefers-reduced-motion:reduce)').matches){const k=(n-t0)/DUR;I[cur].lastElementChild.style.transform='scaleX('+Math.min(1,k)+')';if(k>=1)set((cur+1)%D.length)}else if(hov||!vis){t0=n-(parseFloat(I[cur].lastElementChild.style.transform.slice(7))||0)*DUR}
+I.forEach((e,j)=>{if(j!==cur)e.lastElementChild.style.transform='scaleX(0)'});requestAnimationFrame(f)})(performance.now());
+})();
+</script>
+<div id="cv"><span></span></div>
+<script>
+(()=>{const cv=document.getElementById('cv');addEventListener('pageshow',e=>{if(e.persisted)cv.className=''});
+document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a||e.metaKey||e.ctrlKey||e.shiftKey||a.target)return;const h=a.getAttribute('href');if(!/\.html$/.test(h)||h==='index.html')return;e.preventDefault();cv.firstElementChild.textContent=a.textContent.trim()||'ThePhotoHub';cv.className='in';setTimeout(()=>location.href=h,850)})})();
+</script>
+</body>
+</html>
